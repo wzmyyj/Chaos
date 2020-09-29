@@ -18,6 +18,7 @@
             <option value="$PROJECT_DIR$/app_main" />
             <option value="$PROJECT_DIR$/app_message" />
             <option value="$PROJECT_DIR$/app_mine" />
+            <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/common" />
             <option value="$PROJECT_DIR$/common_service" />
             <option value="$PROJECT_DIR$/lib_base" />

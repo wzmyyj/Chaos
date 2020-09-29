@@ -9,35 +9,37 @@ import androidx.fragment.app.FragmentTransaction;
 
 /**
  * Created on 2019/09/30.
+ * <p>
+ * Fragment Util.
  *
  * @author feling
  * @version 1.0.0
  * @since 1.0.0
  */
+@SuppressWarnings("unused")
 public final class FragmentUtil {
 
     private static final String TAG = FragmentUtil.class.getSimpleName();
 
     /**
-     * no instances.
+     * No instances.
      */
     private FragmentUtil() {
-        throw new UnsupportedOperationException(TAG + "you can't instantiate me.");
+        throw new UnsupportedOperationException(TAG + "You can't instantiate me.");
     }
 
     /**
-     * for DEBUG.
+     * For DEBUG.
      */
     public static boolean DEBUG = false;
 
-
     /**
-     * addFragment .
+     * Add a fragment to a container.
      *
-     * @param fragmentManager  .
-     * @param containerId      .
-     * @param fragment         .
-     * @param isAddToBackStack 将要替换的fragment是否要添加到返回栈
+     * @param fragmentManager  fragmentManager
+     * @param containerId      container view's Id
+     * @param fragment         target
+     * @param isAddToBackStack whether to add fragment to stack or not.
      * @param tag              TAG
      */
     public static void addFragment(
@@ -53,14 +55,13 @@ public final class FragmentUtil {
         transaction.add(containerId, fragment, tag).commit();
     }
 
-
     /**
-     * replaceFragment .
+     * Replace an existing fragment that was added to a container.
      *
-     * @param fragmentManager  .
-     * @param containerId      .
-     * @param fragment         .
-     * @param isAddToBackStack 将要替换的fragment是否要添加到返回栈
+     * @param fragmentManager  fragmentManager
+     * @param containerId      container view's Id
+     * @param fragment         target
+     * @param isAddToBackStack whether to add fragment to stack or not.
      * @param tag              TAG
      */
     public static void replaceFragment(
@@ -75,6 +76,5 @@ public final class FragmentUtil {
         }
         transaction.replace(containerId, fragment, tag).commit();
     }
-
 
 }

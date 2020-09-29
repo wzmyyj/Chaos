@@ -11,31 +11,34 @@ import androidx.lifecycle.LifecycleOwner;
 
 /**
  * Created on 2019/11/19.
+ * <p>
+ * Context Util.
  *
  * @author feling
  * @version 1.0.0
  * @since 1.0.0
  */
+@SuppressWarnings("unused")
 public final class ContextUtil {
 
     private static final String TAG = ContextUtil.class.getSimpleName();
 
     /**
-     * no instances.
+     * No instances.
      */
     private ContextUtil() {
-        throw new UnsupportedOperationException(TAG + "you can't instantiate me.");
+        throw new UnsupportedOperationException(TAG + "You can't instantiate me.");
     }
 
     /**
-     * for DEBUG.
+     * For DEBUG.
      */
     public static boolean DEBUG = false;
 
     /**
-     * get content from fragment.
+     * Get content from fragment.
      *
-     * @param fragment .
+     * @param fragment fragment
      * @return content
      */
     @Nullable
@@ -44,7 +47,7 @@ public final class ContextUtil {
     }
 
     /**
-     * get content from lifecycleOwner.
+     * Get content from lifecycleOwner.
      *
      * @param owner LifecycleOwner
      * @return context
@@ -60,11 +63,10 @@ public final class ContextUtil {
         }
     }
 
-
     /**
-     * get activity from context.
+     * Get activity from context.
      *
-     * @param context Context
+     * @param context context
      * @return activity
      */
     @Nullable
@@ -72,9 +74,14 @@ public final class ContextUtil {
         return findActivity(context);
     }
 
-
     //--------------private method----------------//
 
+    /**
+     * Recursive lookup activity.
+     *
+     * @param context context
+     * @return activity
+     */
     @Nullable
     private static Activity findActivity(@Nullable Context context) {
         if (context == null) return null;
@@ -86,6 +93,5 @@ public final class ContextUtil {
         }
         return null;
     }
-
 
 }

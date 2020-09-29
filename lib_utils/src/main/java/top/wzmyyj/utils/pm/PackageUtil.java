@@ -13,30 +13,32 @@ import java.util.List;
 
 /**
  * Created on 2019/08/17.
+ * <p>
+ * Package information related Util.
  *
  * @author feling
  * @version 1.0.0
  * @since 1.0.0
  */
+@SuppressWarnings("unused")
 public final class PackageUtil {
 
     private static final String TAG = PackageUtil.class.getSimpleName();
 
-
     private PackageUtil() {
-        throw new UnsupportedOperationException(TAG + "you can't instantiate me.");
+        throw new UnsupportedOperationException(TAG + "You can't instantiate me.");
     }
 
     /**
-     * for debug.
+     * For debug.
      */
     public static boolean DEBUG = false;
 
     /**
-     * 获取应用版本号名称。
+     * Get the app version name.
      *
-     * @param context .
-     * @return 应用版本号名称(String)
+     * @param context context
+     * @return versionName
      */
     @Nullable
     public static String getVersionName(@NonNull Context context) {
@@ -45,10 +47,10 @@ public final class PackageUtil {
     }
 
     /**
-     * 获取应用版本号。
+     * Get the app version code.
      *
-     * @param context .
-     * @return 应用版本号(long)
+     * @param context context
+     * @return versionCode
      */
     public static long getVersionCode(@NonNull Context context) {
         PackageInfo info = getPackageInfo(context);
@@ -56,18 +58,18 @@ public final class PackageUtil {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
                 return info.getLongVersionCode();
             } else {
+                //noinspection deprecation
                 return info.versionCode;
             }
         }
         return 0L;
     }
 
-
     /**
-     * 获取应用包名。
+     * Get the app package name.
      *
-     * @param context .
-     * @return 应用包名(String)
+     * @param context context
+     * @return packageName
      */
     @Nullable
     public static String getPackageName(@NonNull Context context) {
@@ -76,10 +78,10 @@ public final class PackageUtil {
     }
 
     /**
-     * 获取包名Info。
+     * Get the app package info.
      *
      * @param context context
-     * @return PackageInfo
+     * @return packageInfo
      */
     @Nullable
     public static PackageInfo getPackageInfo(@NonNull Context context) {
@@ -88,20 +90,19 @@ public final class PackageUtil {
             return pManager.getPackageInfo(context.getPackageName(), 0);
         } catch (PackageManager.NameNotFoundException e) {
             if (DEBUG) {
-                Log.d(TAG, "method getPackageInfo has exception");
+                Log.d(TAG, "Method getPackageInfo has exception!");
                 e.printStackTrace();
             }
         }
-
         return null;
     }
 
     /**
-     * 判断指定包名的应用是否在手机上安装。
+     * Determine whether the app with the specified package name is installed on the mobile phone.
      *
-     * @param context     .
-     * @param packageName 包名。
-     * @return apk is exist
+     * @param context     context
+     * @param packageName packageName
+     * @return apk is exist?
      */
     public static boolean checkApkExist(@NonNull Context context, @NonNull String packageName) {
         PackageManager packageManager = context.getPackageManager();
@@ -110,14 +111,15 @@ public final class PackageUtil {
             String pn = packageInfoList.get(i).packageName;
             if (pn.equals(packageName)) {
                 if (DEBUG) {
-                    Log.d(TAG, packageName + "is exist");
+                    Log.d(TAG, packageName + "is exist!");
                 }
                 return true;
             }
         }
         if (DEBUG) {
-            Log.d(TAG, packageName + "is not exist");
+            Log.d(TAG, packageName + "is not exist!");
         }
         return false;
     }
+
 }

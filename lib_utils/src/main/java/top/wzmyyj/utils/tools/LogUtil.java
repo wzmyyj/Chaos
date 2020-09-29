@@ -11,69 +11,73 @@ import org.json.JSONObject;
 
 /**
  * Created on 2019/11/19.
+ * <p>
+ * Println various levels Log.
  *
  * @author feling
  * @version 1.0.0
  * @since 1.0.0
  */
+@SuppressWarnings("unused")
 public final class LogUtil {
 
     private static final String TAG = LogUtil.class.getSimpleName();
 
     /**
-     * no instances.
+     * No instances.
      */
     private LogUtil() {
-        throw new UnsupportedOperationException(TAG + "you can't instantiate me.");
+        throw new UnsupportedOperationException(TAG + "You can't instantiate me.");
     }
 
     /**
-     * for DEBUG.
+     * For DEBUG.
      */
     public static boolean DEBUG = false;
 
-
     /**
-     * Default Log TAG
+     * Default Log TAG.
      */
-    private static final String DEFAULT_TAG = "FEL";
+    private static final String DEFAULT_TAG = "WZM";
 
     /**
-     * Log TAG
+     * Log TAG.
      */
     private static String LOG_TAG = DEFAULT_TAG;
 
 
     /**
-     * @param tag tag.
+     * @param tag TAG
      */
     public static void init(@NonNull String tag) {
-        init(tag,true);
+        init(tag, true);
     }
 
     /**
-     * @param tag tag.
+     * Init Util.
+     *
+     * @param tag   TAG
+     * @param debug isDebug
      */
     public static void init(@NonNull String tag, boolean debug) {
         LOG_TAG = checkTag(tag);
         DEBUG = debug;
     }
 
-
     /**
-     * verbose log.
+     * Println Verbose Log.
      *
-     * @param msg .
+     * @param msg MSG
      */
     public static void v(@Nullable String msg) {
         v(LOG_TAG, msg);
     }
 
     /**
-     * verbose log.
+     * Println Verbose Log.
      *
-     * @param tag .
-     * @param msg .
+     * @param tag TAG
+     * @param msg MSG
      */
     public static void v(@NonNull String tag, @Nullable String msg) {
         if (DEBUG)
@@ -81,19 +85,19 @@ public final class LogUtil {
     }
 
     /**
-     * debug log.
+     * Println Debug Log.
      *
-     * @param msg .
+     * @param msg TAG
      */
     public static void d(@Nullable String msg) {
         d(LOG_TAG, msg);
     }
 
     /**
-     * debug log.
+     * Println Debug Log.
      *
-     * @param tag .
-     * @param msg .
+     * @param tag TAG
+     * @param msg MSG
      */
     public static void d(@NonNull String tag, @Nullable String msg) {
         if (DEBUG)
@@ -101,40 +105,39 @@ public final class LogUtil {
     }
 
     /**
-     * info log.
+     * Println Info Log.
      *
-     * @param msg .
+     * @param msg MSG
      */
     public static void i(@Nullable String msg) {
         i(LOG_TAG, msg);
     }
 
     /**
-     * info log.
+     * Println Info Log.
      *
-     * @param tag .
-     * @param msg .
+     * @param tag TAG
+     * @param msg MSG
      */
     public static void i(@NonNull String tag, @Nullable String msg) {
         if (DEBUG)
             Log.i(checkTag(tag), checkMsg(msg));
     }
 
-
     /**
-     * warn log.
+     * Println Warn Log.
      *
-     * @param msg .
+     * @param msg MSG
      */
     public static void w(@Nullable String msg) {
         w(LOG_TAG, msg);
     }
 
     /**
-     * warn log.
+     * Println Warn Log.
      *
-     * @param tag .
-     * @param msg .
+     * @param tag TAG
+     * @param msg MSG
      */
     public static void w(@NonNull String tag, @Nullable String msg) {
         if (DEBUG)
@@ -142,19 +145,19 @@ public final class LogUtil {
     }
 
     /**
-     * error log.
+     * Println Error Log.
      *
-     * @param msg .
+     * @param msg MSG
      */
     public static void e(@Nullable String msg) {
         e(LOG_TAG, msg);
     }
 
     /**
-     * error log.
+     * Println Error Log.
      *
-     * @param tag .
-     * @param msg .
+     * @param tag TAG
+     * @param msg MSG
      */
     public static void e(@NonNull String tag, @Nullable String msg) {
         if (DEBUG)
@@ -162,57 +165,57 @@ public final class LogUtil {
     }
 
     /**
-     * json log.
+     * Println Json Log.
      *
-     * @param msg .
+     * @param msg MSG
      */
     public static void j(@Nullable String msg) {
         d(LOG_TAG, msg);
     }
 
     /**
-     * json log.
+     * Println Json Log.
      *
-     * @param tag  .
-     * @param json .
+     * @param tag  TAG
+     * @param json Json MSG
      */
     public static void j(@NonNull String tag, @Nullable String json) {
         if (DEBUG)
-            Log.d(checkTag(tag), json != null ? getPrettyJson(json) : "Log : json is null");
+            Log.d(checkTag(tag), json != null ? getPrettyJson(json) : "Log : json is null.");
     }
-
-
 
     //--------------private method----------------//
 
     /**
-     * check msg if empty
+     * Check msg if empty or null.
      *
-     * @param msg .
+     * @param msg MSG
      * @return not empty string
      */
     private static String checkMsg(@Nullable String msg) {
         if (msg == null) {
-            return "Log : msg is null";
+            return "Log : msg is null.";
         } else if ("".equals(msg)) {
-            return "Log : msg is empty string";
+            return "Log : msg is empty string.";
         }
         return msg;
     }
 
     /**
-     * check tag if null
+     * Check tag if empty.
      *
-     * @param tag .
-     * @return not null string
+     * @param tag TAG
+     * @return TAG or DEFAULT_TAG
      */
     private static String checkTag(@NonNull String tag) {
         return "".equals(tag) ? DEFAULT_TAG : tag;
     }
 
     /**
-     * @param json .
-     * @return json format .
+     * Format Json Log.
+     *
+     * @param json Json MSG
+     * @return Json Log
      */
     private static String getPrettyJson(@NonNull String json) {
         try {

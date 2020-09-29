@@ -3,9 +3,9 @@ package top.wzmyyj.utils.app;
 import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
-import android.util.ArrayMap;
 import android.view.View;
 
+import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -13,38 +13,49 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.LifecycleOwner;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Created on 2019/11/19.
+ * <p>
+ * Lifecycle Util.
  *
  * @author feling
  * @version 1.0.0
  * @since 1.0.0
  */
+@SuppressWarnings("unused")
 public final class LifecycleUtil {
 
     private static final String TAG = LifecycleUtil.class.getSimpleName();
 
     /**
-     * no instances.
+     * No instances.
      */
     private LifecycleUtil() {
-        throw new UnsupportedOperationException(TAG + "you can't instantiate me.");
+        throw new UnsupportedOperationException(TAG + "You can't instantiate me.");
     }
 
     /**
-     * for DEBUG.
+     * For DEBUG.
      */
     public static boolean DEBUG = false;
 
-
     /**
-     * find lifecycleOwner by view.
+     * Find lifecycleOwner by view. (used in MainThread)
+     * <p>
+     * General find the most recent a {@link androidx.fragment.app.Fragment} or
+     * {@link androidx.fragment.app.FragmentActivity}
+     * <p>
+     * If lifecycleOwner is a {@link androidx.fragment.app.Fragment}.
+     * Judge whether fragment's view is null. return current fragment or
+     * its viewLifecycleOwner.
      *
      * @param v view
      * @return lifecycleOwner
      */
+    @MainThread
     @Nullable
     public static LifecycleOwner getOwnerByView(@NonNull View v) {
         Context context = v.getContext();
@@ -52,21 +63,32 @@ public final class LifecycleUtil {
         LifecycleOwner result = null;
         if (activity instanceof FragmentActivity) {
             FragmentActivity fragmentActivity = (FragmentActivity) activity;
-            result = findSupportFragment(fragmentActivity, v);
-            if (result == null) {
+            Fragment fragment = findSupportFragment(fragmentActivity, v);
+            if (fragment == null) {
                 result = fragmentActivity;
+            } else {
+                if (fragment.getView() == null) {
+                    result = fragment;
+                } else {
+                    result = fragment.getViewLifecycleOwner();
+                }
             }
         }
         return result;
     }
 
-
     //--------------private method----------------//
 
+    // map deposit fragments.
+    private static final Map<View, Fragment> tempViewToSupportFragment = new HashMap<>();
 
-    private static final ArrayMap<View, Fragment> tempViewToSupportFragment = new ArrayMap<>();
-
-
+    /**
+     * Find supportFragment with view in the fragment tree of fragmentActivity.
+     *
+     * @param activity fragmentActivity
+     * @param target   view
+     * @return fragment
+     */
     @Nullable
     private static Fragment findSupportFragment(FragmentActivity activity, View target) {
         tempViewToSupportFragment.clear();
@@ -90,22 +112,30 @@ public final class LifecycleUtil {
         return result;
     }
 
+    /**
+     * Find all supportFragments with views.
+     *
+     * @param topLevelFragments child fragments
+     * @param result            map
+     */
     private static void findAllSupportFragmentsWithViews(
             @Nullable Collection<Fragment> topLevelFragments,
             @NonNull Map<View, Fragment> result
     ) {
-        if (topLevelFragments == null) {
-            return;
-        }
+        if (topLevelFragments == null) return;
         for (Fragment fragment : topLevelFragments) {
-            if (fragment == null || fragment.getView() == null) {
-                continue;
-            }
+            if (fragment == null || fragment.getView() == null) continue;
             result.put(fragment.getView(), fragment);
             findAllSupportFragmentsWithViews(fragment.getChildFragmentManager().getFragments(), result);
         }
     }
 
+    /**
+     * Recursive lookup activity.
+     *
+     * @param context context
+     * @return activity
+     */
     @Nullable
     private static Activity findActivity(@Nullable Context context) {
         if (context == null) return null;
@@ -117,4 +147,5 @@ public final class LifecycleUtil {
         }
         return null;
     }
+
 }
