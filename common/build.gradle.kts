@@ -1,3 +1,4 @@
+val m = Module.Common
 asAndroidLib()
 useKotlin()
-setupCommon(Module.Common.tag)
+setupAssembly(m.tag)

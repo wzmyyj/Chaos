@@ -1,3 +1,4 @@
+val m=Module.CommonService
 asAndroidLib()
 useKotlin()
-setupCommon(Module.CommonService.tag)
+setupCommon(m.tag)

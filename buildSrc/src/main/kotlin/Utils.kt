@@ -18,6 +18,20 @@ fun Project.asAndroidLib() {
 }
 
 /**
+ * As android application.
+ */
+fun Project.asAndroidApp() {
+    apply { plugin("com.android.application") }
+}
+
+/**
+ * As android application or library.
+ */
+fun Project.asAndroidAppOrLib(runAlone: Boolean) {
+    if (runAlone) asAndroidApp() else asAndroidLib()
+}
+
+/**
  * use kotlin in this module.
  */
 fun Project.useKotlin() {

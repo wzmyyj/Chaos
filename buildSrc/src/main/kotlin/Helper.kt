@@ -79,9 +79,9 @@ fun Project.setupCommon(tag: String? = null) {
 fun Project.setupAssembly(tag: String? = null) {
     setupCommon(tag)
     android.apply {
-        val runAlone = if (tag != null) isRunAlone(tag) else false
+        val runAlone = isRunAlone(tag)
         if (runAlone) {
-            defaultConfig.applicationId = "top.wzmyyj.active"
+            defaultConfig.applicationId = getApplicationId(tag)
         }
         sourceSets {
             register("main") {
