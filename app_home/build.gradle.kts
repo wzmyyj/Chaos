@@ -31,4 +31,6 @@ dependencies {
     testImplementation(Dependencies.junit)
     androidTestImplementation(Dependencies.test_junit)
     androidTestImplementation(Dependencies.test_espresso)
+    implementation(Dependencies.androidx_constraintlayout)
+    implementation(Dependencies.androidx_recyclerview)
 }

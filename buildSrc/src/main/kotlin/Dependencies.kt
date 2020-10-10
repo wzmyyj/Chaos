@@ -1,5 +1,3 @@
-@file:Suppress("MayBeConstant")
-
 /**
  * Created on 2020/09/19.
  *
@@ -12,7 +10,6 @@
 object Dependencies {
 
     private object Versions {
-        const val build = "4.0.1"
         const val kotlin = "1.4.10"
         const val coreKtx = "1.3.0"
         const val androidx = "1.2.0"
@@ -21,10 +18,6 @@ object Dependencies {
         const val room = "2.2.5"
         const val navigation = "2.3.0"
     }
-
-    // gradle
-    const val buildGradle = "com.android.tools.build:gradle:${Versions.build}"
-    const val kotlinGradle = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
 
     // kotlin
     const val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
@@ -41,8 +34,12 @@ object Dependencies {
 
     //test
     const val junit = "junit:junit:4.12"
-    const val test_junit= "androidx.test.ext:junit:1.1.2"
+    const val test_junit = "androidx.test.ext:junit:1.1.2"
     const val test_espresso = "androidx.test.espresso:espresso-core:3.2.0"
+
+    //ARouter
+    const val arouter_api = "com.alibaba:arouter-api:1.4.1"
+    const val arouter_compiler = "com.alibaba:arouter-compiler:1.2.2"
 
 
 }

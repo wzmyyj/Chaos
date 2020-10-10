@@ -1,4 +1,4 @@
-@file:Suppress("MayBeConstant")
+import com.android.tools.r8.utils.H
 
 /**
  * Created on 2020/09/19.
@@ -11,19 +11,28 @@
  */
 
 object AppConfig {
-    val applicationIdPre = "top.wzmyyj."
+    const val applicationIdPre = "top.wzmyyj."
     const val versionName = "1.0.0"
 }
 
 object AndroidConfig {
-    val compileSdkVersion = 30
-    val minSdkVersion = 21
-    val targetSdkVersion = 30
-    val buildToolsVersion = "30.0.2"
+    const val compileSdkVersion = 30
+    const val minSdkVersion = 21
+    const val targetSdkVersion = 30
+    const val buildToolsVersion = "30.0.2"
+}
+
+enum class Module(val tag: String, val runAlone: Boolean){
+    App("app",true),
+    Common("common",false),
+    CommonService("common_service",false),
+    Active("active",false)
 }
 
 object MiniProgramType {
-    val daily = 1
-    val gray = 1
-    val online = 0
+    const val daily = 1
+    const val gray = 1
+    const val online = 0
 }
+
+
