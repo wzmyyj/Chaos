@@ -11,38 +11,6 @@ import org.gradle.api.artifacts.dsl.DependencyHandler
  */
 
 /**
- * As android library.
- */
-fun Project.asAndroidLib() {
-    apply { plugin("com.android.library") }
-}
-
-/**
- * As android application.
- */
-fun Project.asAndroidApp() {
-    apply { plugin("com.android.application") }
-}
-
-/**
- * As android application or library.
- */
-fun Project.asAndroidAppOrLib(runAlone: Boolean) {
-    if (runAlone) asAndroidApp() else asAndroidLib()
-}
-
-/**
- * use kotlin in this module.
- */
-fun Project.useKotlin() {
-    apply {
-        plugin("kotlin-android")
-        plugin("kotlin-android-extensions")
-        plugin("kotlin-kapt")
-    }
-}
-
-/**
  * Get versionCode By versionName.
  *
  * @param versionName versionName
@@ -68,30 +36,23 @@ fun getPrefix(tag: String?): String {
 }
 
 /**
- * Is run alone by tag.
- */
-fun isRunAlone(tag: String?): Boolean {
-    return Module.values().find { it.tag == tag }?.runAlone ?: false
-}
-
-/**
  * Get application id by tag.
  */
 fun getApplicationId(tag: String?): String {
     return AppConfig.applicationIdPre + (tag ?: "xxx")
 }
 
-fun DependencyHandler.implementation(dependencyNotation: Any): Dependency? =
+fun DependencyHandler.implementation2(dependencyNotation: Any): Dependency? =
     add("implementation", dependencyNotation)
 
-fun DependencyHandler.testImplementation(dependencyNotation: Any): Dependency? =
+fun DependencyHandler.testImplementation2(dependencyNotation: Any): Dependency? =
     add("testImplementation", dependencyNotation)
 
-fun DependencyHandler.androidTestImplementation(dependencyNotation: Any): Dependency? =
+fun DependencyHandler.androidTestImplementation2(dependencyNotation: Any): Dependency? =
     add("androidTestImplementation", dependencyNotation)
 
-fun DependencyHandler.api(dependencyNotation: Any): Dependency? =
+fun DependencyHandler.api2(dependencyNotation: Any): Dependency? =
     add("api", dependencyNotation)
 
-fun DependencyHandler.kapt(dependencyNotation: Any): Dependency? =
+fun DependencyHandler.kapt2(dependencyNotation: Any): Dependency? =
     add("kapt", dependencyNotation)

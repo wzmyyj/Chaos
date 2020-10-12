@@ -3,6 +3,7 @@ import org.gradle.api.JavaVersion
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.getByName
+import org.jetbrains.kotlin.gradle.plugin.KaptExtension
 
 /**
  * Created on 2020/10/10.
@@ -11,13 +12,14 @@ import org.gradle.kotlin.dsl.getByName
  * @version 1.0.0
  * @since 1.0.0
  */
-private val Project.android get() = extensions.getByName<BaseExtension>("android")
+private val Project.android_ get() = extensions.getByName<BaseExtension>("android")
+private val Project.kapt_ get() = extensions.getByName<KaptExtension>("kapt")
 
 /**
  * Do core gradle config.
  */
 fun Project.setupCore() {
-    android.apply {
+    android_.apply {
         compileSdkVersion(AndroidConfig.compileSdkVersion)
         buildToolsVersion(AndroidConfig.buildToolsVersion)
         defaultConfig {
@@ -44,47 +46,66 @@ fun Project.setupCore() {
     }
 
     dependencies {
-        implementation(Dependencies.androidx_appcompat)
-        testImplementation(Dependencies.junit)
-        androidTestImplementation(Dependencies.test_junit)
-        androidTestImplementation(Dependencies.test_espresso)
+        fileTree(mapOf("dir" to "libs", "include" to arrayOf("*.jar", "*.aar")))
+        implementation2(Dependencies.androidx_appcompat)
+        testImplementation2(Dependencies.junit)
+        androidTestImplementation2(Dependencies.test_junit)
+        androidTestImplementation2(Dependencies.test_espresso)
     }
 }
 
 /**
  * Do common gradle config.
  */
-fun Project.setupCommon(tag: String? = null) {
+fun Project.setupCommon(module: Module) {
+    useKotlin()
     setupCore()
-    android.apply {
-        if (tag != null) resourcePrefix(getPrefix(tag))
+    android_.apply {
+        resourcePrefix(getPrefix(module.tag))
         @Suppress("DEPRECATION")
         dataBinding.isEnabled = true
         defaultConfig.multiDexEnabled = true
     }
     dependencies {
-        implementation(Dependencies.androidx_coreKtx)
-        implementation(Dependencies.androidx_constraintlayout)
-        implementation(Dependencies.androidx_recyclerview)
-        implementation(Dependencies.arouter_api)
-        kapt(Dependencies.arouter_compiler)
-        api(project(":lib_base"))
-        api(project(":lib_utils"))
+        implementation2(Dependencies.androidx_coreKtx)
+        implementation2(Dependencies.androidx_constraintlayout)
+        implementation2(Dependencies.androidx_recyclerview)
+        implementation2(Dependencies.kotlin_jdk)
+        api2(project(":lib_base"))
+        api2(project(":lib_utils"))
+    }
+}
+
+/**
+ * Do common service gradle config.
+ */
+fun Project.setupCommonService(module: Module) {
+    useKotlin()
+    setupCore()
+    android_.apply {
+        resourcePrefix(getPrefix(module.tag))
+    }
+    dependencies {
+        implementation2(Dependencies.androidx_coreKtx)
+        implementation2(Dependencies.kotlin_jdk)
+        api2(project(":lib_base"))
+        api2(project(":lib_utils"))
     }
 }
 
 /**
  * Do assembly gradle config.
  */
-fun Project.setupAssembly(tag: String? = null) {
-    setupCommon(tag)
-    android.apply {
-        val runAlone = isRunAlone(tag)
+fun Project.setupAssembly(module: Module) {
+    setupCommon(module)
+    useARouter()
+    android_.apply {
+        val runAlone = module.runAlone
         if (runAlone) {
-            defaultConfig.applicationId = getApplicationId(tag)
+            defaultConfig.applicationId = getApplicationId(module.tag)
         }
         sourceSets {
-            register("main") {
+            getByName("main") {
                 // 单独调试与集成调试时使用不同的 AndroidManifest.xml 文件
                 if (runAlone) {
                     manifest.srcFile("src/main/run_alone/AndroidManifest.xml")
@@ -94,6 +115,22 @@ fun Project.setupAssembly(tag: String? = null) {
                 }
             }
         }
+    }
+    dependencies {
+        api2(project(":common"))
+        api2(project(":common_service"))
+    }
+}
+
+/**
+ * Do app gradle config.
+ */
+fun Project.setupApp(module: Module) {
+    setupCommon(module)
+    useARouter()
+    android_.apply {
+        defaultConfig.applicationId = getApplicationId(module.tag)
+        flavorDimensions("channel")
         productFlavors {
 //            // 日常测试
 //            daily {}
@@ -104,8 +141,36 @@ fun Project.setupAssembly(tag: String? = null) {
         }
     }
     dependencies {
-        api(project(":common"))
-        api(project(":common_service"))
+        api2(project(":common"))
+        api2(project(":common_service"))
     }
 }
+
+/**
+ * use kotlin in this module.
+ */
+fun Project.useKotlin() {
+    apply {
+        plugin("kotlin-android")
+        plugin("kotlin-android-extensions")
+        plugin("kotlin-kapt")
+    }
+}
+
+/**
+ * use ARouter.
+ */
+fun Project.useARouter() {
+    kapt_.apply {
+        arguments {
+            arg("AROUTER_MODULE_NAME", project.name)
+        }
+    }
+    dependencies {
+        kapt2(Dependencies.arouter_compiler)
+        implementation2(Dependencies.arouter_api)
+    }
+}
+
+
 

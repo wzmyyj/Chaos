@@ -1,4 +1,3 @@
-
 /**
  * Created on 2020/09/19.
  *
@@ -21,22 +20,20 @@ object AndroidConfig {
     const val buildToolsVersion = "30.0.2"
 }
 
-object MiniProgramType {
-    const val daily = 1
-    const val gray = 1
-    const val online = 0
+object Android {
+    const val application = "com.android.application"
+    const val library = "com.android.library"
 }
 
-enum class Module(val tag: String, val runAlone: Boolean){
-    Common("common",false),
-    CommonService("common_service",false),
-    Login("login",false),
-    Main("main",false),
-    Home("home",false),
-    Active("active",false),
-    Message("message",false),
-    Mine("mine",false),
-    App("chaos",true)
+enum class Module(val tag: String, val runAlone: Boolean) {
+    Common("common", false),
+    CommonService("common_service", false),
+    Login("login", false),
+    Main("main", false),
+    Home("home", false),
+    Active("active", false),
+    Message("message", false),
+    Mine("mine", false),
+    App("chaos", true)
 }
-
 

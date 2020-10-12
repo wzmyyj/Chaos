@@ -1,4 +1,2 @@
-val m = Module.Login
-asAndroidAppOrLib(m.runAlone)
-useKotlin()
-setupAssembly(m.tag)
+plugins { if (Module.Login.runAlone) id(Android.application) else id(Android.library) }
+setupAssembly(Module.Login)

@@ -1,4 +1,2 @@
-val m = Module.Common
-asAndroidLib()
-useKotlin()
-setupAssembly(m.tag)
+plugins { id(Android.library) }
+setupCommon(Module.Common)

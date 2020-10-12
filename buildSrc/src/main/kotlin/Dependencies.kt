@@ -20,7 +20,7 @@ object Dependencies {
     }
 
     // kotlin
-    const val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
+    const val kotlin_jdk = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
 
     // androidx
     const val androidx_coreKtx = "androidx.core:core-ktx:${Versions.coreKtx}"

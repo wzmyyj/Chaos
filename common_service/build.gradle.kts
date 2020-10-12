@@ -1,4 +1,2 @@
-val m=Module.CommonService
-asAndroidLib()
-useKotlin()
-setupCommon(m.tag)
+plugins { id(Android.library) }
+setupCommonService(Module.CommonService)
