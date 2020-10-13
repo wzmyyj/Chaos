@@ -23,6 +23,7 @@
             <option value="$PROJECT_DIR$/common_service" />
             <option value="$PROJECT_DIR$/lib_base" />
             <option value="$PROJECT_DIR$/lib_utils" />
+            <option value="$PROJECT_DIR$/lib_weight" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

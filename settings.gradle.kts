@@ -1,4 +1,4 @@
-rootProject.name = "Chaos"
+include(":lib_weight")
 include(":lib_base")
 include(":lib_utils")
 include(":common")
@@ -10,3 +10,4 @@ include(":app_active")
 include(":app_message")
 include(":app_mine")
 include(":app")
+rootProject.name = "Chaos"

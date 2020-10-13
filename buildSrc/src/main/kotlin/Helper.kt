@@ -71,9 +71,11 @@ fun Project.setupCommon(module: Module) {
         implementation2(Dependencies.androidx_constraintlayout)
         implementation2(Dependencies.androidx_recyclerview)
         implementation2(Dependencies.androidx_lifecycle_ext)
+        implementation2(Dependencies.androidx_lifecycle_java8)
         implementation2(Dependencies.kotlin_jdk)
         api2(project(":lib_base"))
         api2(project(":lib_utils"))
+        api2(project(":lib_weight"))
     }
 }
 
