@@ -62,14 +62,15 @@ fun Project.setupCommon(module: Module) {
     setupCore()
     android_.apply {
         resourcePrefix(getPrefix(module.tag))
-        @Suppress("DEPRECATION")
-        dataBinding.isEnabled = true
+        @Suppress("UnstableApiUsage")
+        buildFeatures.dataBinding = true
         defaultConfig.multiDexEnabled = true
     }
     dependencies {
         implementation2(Dependencies.androidx_coreKtx)
         implementation2(Dependencies.androidx_constraintlayout)
         implementation2(Dependencies.androidx_recyclerview)
+        implementation2(Dependencies.androidx_lifecycle_ext)
         implementation2(Dependencies.kotlin_jdk)
         api2(project(":lib_base"))
         api2(project(":lib_utils"))
