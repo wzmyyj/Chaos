@@ -8,6 +8,8 @@ import org.jetbrains.kotlin.gradle.plugin.KaptExtension
 /**
  * Created on 2020/10/10.
  *
+ * Gradle config helper.
+ *
  * @author feling
  * @version 1.0.0
  * @since 1.0.0
@@ -85,6 +87,7 @@ fun Project.setupCommon(module: Module) {
 fun Project.setupCommonService(module: Module) {
     useKotlin()
     setupCore()
+    useARouter()
     android_.apply {
         resourcePrefix(getPrefix(module.tag))
     }
@@ -150,7 +153,7 @@ fun Project.setupApp(module: Module) {
 }
 
 /**
- * use kotlin in this module.
+ * Use kotlin in this module.
  */
 fun Project.useKotlin() {
     apply {
@@ -161,7 +164,7 @@ fun Project.useKotlin() {
 }
 
 /**
- * use ARouter.
+ * Use ARouter.
  */
 fun Project.useARouter() {
     kapt_.apply {
@@ -172,6 +175,15 @@ fun Project.useARouter() {
     dependencies {
         kapt2(Dependencies.arouter_compiler)
         implementation2(Dependencies.arouter_api)
+    }
+}
+
+/**
+ * Depend modules if not run alone.
+ */
+fun Project.dependModules(vararg modules: Module) {
+    dependencies {
+        modules.filter { it.runAlone.not() }.forEach { api2(project(it.path)) }
     }
 }
 

@@ -25,15 +25,56 @@ object Android {
     const val library = "com.android.library"
 }
 
-enum class Module(val tag: String, val runAlone: Boolean) {
-    Common("common", false),
-    CommonService("common_service", false),
-    Login("login", false),
-    Main("main", false),
-    Home("home", false),
-    Active("active", false),
-    Message("message", false),
-    Mine("mine", false),
-    App("chaos", true)
+enum class Module(val tag: String, val path: String, val runAlone: Boolean) {
+    App(
+        tag = "chaos",
+        path = ":app",
+        runAlone = true
+    ),
+    Common(
+        tag = "common",
+        path = ":common",
+        runAlone = false
+    ),
+    CommonService(
+        tag = "common_service",
+        path = ":common_service",
+        runAlone = false
+    ),
+    Login(
+        tag = "login",
+        path = ":app_login",
+        runAlone = false
+    ),
+    Main(
+        tag = "main",
+        path = ":app_main",
+        runAlone = false
+    ),
+    Home(
+        tag = "home",
+        path = ":app_home",
+        runAlone = false
+    ),
+    Category(
+        tag = "category",
+        path = ":app_category",
+        runAlone = false
+    ),
+    Track(
+        tag = "track",
+        path = ":app_track",
+        runAlone = false
+    ),
+    Message(
+        tag = "message",
+        path = ":app_message",
+        runAlone = false
+    ),
+    Mine(
+        tag = "mine",
+        path = ":app_mine",
+        runAlone = false
+    )
 }
 

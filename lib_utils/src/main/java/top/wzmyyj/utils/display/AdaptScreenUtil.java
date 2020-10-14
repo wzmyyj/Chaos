@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  * Created on 2019/08/19.
- *
+ * <p>
  * Adapt Screen. Use pt as the unit of dimension.
  *
  * @author feling
@@ -44,7 +44,7 @@ public final class AdaptScreenUtil {
     /**
      * Fit the screen width according to the design draft.
      *
-     * @param resources resources
+     * @param resources   resources
      * @param designWidth Screen width of the design draft, in Pt
      * @return After adaptation resources
      */
@@ -72,7 +72,7 @@ public final class AdaptScreenUtil {
      * Apply Display Metrics.
      *
      * @param resources resources
-     * @param newXdpi xdpi
+     * @param newXdpi   xdpi
      */
     private static void applyDisplayMetrics(@NonNull final Resources resources, final float newXdpi) {
         resources.getDisplayMetrics().xdpi = newXdpi;
@@ -83,7 +83,7 @@ public final class AdaptScreenUtil {
      * Apply other Display Metrics.
      *
      * @param resources resources
-     * @param newXdpi xdpi
+     * @param newXdpi   xdpi
      */
     private static void applyOtherDisplayMetrics(@NonNull final Resources resources, final float newXdpi) {
         if (metricsFields == null) {
@@ -117,7 +117,7 @@ public final class AdaptScreenUtil {
      * Apply Metrics Fields.
      *
      * @param resources resources
-     * @param newXdpi xdpi
+     * @param newXdpi   xdpi
      */
     private static void applyMetricsFields(@NonNull final Resources resources, final float newXdpi) {
         for (Field metricsField : metricsFields) {
@@ -136,10 +136,10 @@ public final class AdaptScreenUtil {
     }
 
     /**
-     *  Get Metrics from Field.
+     * Get Metrics from Field.
      *
      * @param resources resources
-     * @param field  field
+     * @param field     field
      * @return DisplayMetrics
      */
     private static DisplayMetrics getMetricsFromField(@NonNull final Resources resources, final Field field) {

@@ -14,7 +14,7 @@ object Dependencies {
         const val coreKtx = "1.3.0"
         const val androidx = "1.2.0"
         const val lifecycle = "2.2.0"
-        const val material="1.2.1"
+        const val material = "1.2.1"
         const val fragment = "1.2.5"
         const val room = "2.2.5"
         const val navigation = "2.3.0"
@@ -28,11 +28,13 @@ object Dependencies {
     const val androidx_appcompat = "androidx.appcompat:appcompat:${Versions.androidx}"
     const val androidx_constraintlayout = "androidx.constraintlayout:constraintlayout:1.1.3"
     const val androidx_recyclerview = "androidx.recyclerview:recyclerview:1.1.0-beta03"
-    const val androidx_lifecycle_java8 = "androidx.lifecycle:lifecycle-common-java8:${Versions.lifecycle}"
-    const val androidx_lifecycle_ext = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle}"
+    const val androidx_lifecycle_java8 =
+        "androidx.lifecycle:lifecycle-common-java8:${Versions.lifecycle}"
+    const val androidx_lifecycle_ext =
+        "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle}"
 
     // material
-    const val material="com.google.android.material:material:${Versions.material}"
+    const val material = "com.google.android.material:material:${Versions.material}"
 
     //test
     const val junit = "junit:junit:4.12"
