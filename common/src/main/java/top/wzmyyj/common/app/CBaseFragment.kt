@@ -1,5 +1,7 @@
 package top.wzmyyj.common.app
 
+import android.graphics.drawable.Drawable
+import androidx.annotation.ColorInt
 import top.wzmyyj.base.app.BaseFragment
 
 /**
@@ -11,5 +13,10 @@ import top.wzmyyj.base.app.BaseFragment
  */
 open class CBaseFragment : BaseFragment() {
 
+    fun Int.string(): String = getString(this)
 
+    fun Int.drawable(): Drawable = getDrawable(this)!!
+
+    @ColorInt
+    fun Int.color(): Int = getColor(this)
 }

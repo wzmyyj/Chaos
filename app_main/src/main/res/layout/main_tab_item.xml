@@ -11,10 +11,10 @@
 
     <ImageView
         android:id="@+id/img_tab"
-        android:layout_width="@dimen/pt_20"
-        android:layout_height="@dimen/pt_20"
+        android:layout_width="@dimen/pt_22"
+        android:layout_height="@dimen/pt_22"
         android:layout_marginTop="@dimen/pt_5"
-        android:src="@color/colorGray_b"
+        android:src="@color/colorBBBBBB"
         tools:ignore="ContentDescription" />
 
     <TextView
@@ -22,8 +22,8 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:textColor="@color/colorGray_b"
-        android:textSize="@dimen/pt_10"
+        android:textColor="@color/colorBBBBBB"
+        android:textSize="@dimen/pt_11"
         tools:text="item" />
 
 </LinearLayout>

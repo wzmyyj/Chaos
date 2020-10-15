@@ -5,5 +5,7 @@ dependModules(
     Module.Main,
     Module.Home,
     Module.Message,
+    Module.Category,
+    Module.Track,
     Module.Mine
 )

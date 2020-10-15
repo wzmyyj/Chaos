@@ -1,6 +1,6 @@
 package top.wzmyyj.main.ui.helper;
 
-import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,36 +31,27 @@ import static androidx.fragment.app.FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CU
 @SuppressWarnings("unused")
 public class PagerTabHelper {
 
-    public PagerTabHelper(Config config) {
-        this.config = config;
-    }
-
-    interface Config {
-        /**
-         * Init config PagerTabManager.
-         *
-         * @param manager PagerTabManager
-         */
-        void init(@NonNull PagerTabManager manager);
-    }
-
     private static final int MAX_SIZE = 6;
 
     private TabLayout mTabLayout;
     private SlideViewPager mViewPager;
-    private final Config config;
     private final PagerTabManager manager = new PagerTabManager();
 
+    public void add(@NonNull Fragment fragment, @NonNull String title, @NonNull Drawable image) {
+        manager.add(fragment, title, image);
+    }
+
     @NonNull
-    public View getView(@NonNull Context context, @NonNull FragmentManager fragmentManager, @Nullable ViewGroup parent) {
-        View v = LayoutInflater.from(context).inflate(R.layout.main_tab_pager, parent, false);
+    public View getView(@NonNull LayoutInflater inflater,
+                        @NonNull FragmentManager fragmentManager, @Nullable ViewGroup parent) {
+        View v = inflater.inflate(R.layout.main_tab_pager, parent, false);
         mViewPager = v.findViewById(R.id.viewPager);
         mTabLayout = v.findViewById(R.id.tabLayout);
-        config.init(manager);
         if (manager.toList().size() == 0) {
             return v;
         }
-        FragmentPagerAdapter mAdapter = new FragmentPagerAdapter(fragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+        FragmentPagerAdapter mAdapter = new FragmentPagerAdapter(
+                fragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
             @Override
             public int getCount() {
@@ -83,6 +74,11 @@ public class PagerTabHelper {
             mViewPager.setCurrentItem(which, false);
         }
         return v;
+    }
+
+    @NonNull
+    public PagerTabManager getManager() {
+        return this.manager;
     }
 
     @Nullable

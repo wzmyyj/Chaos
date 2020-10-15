@@ -1,2 +1,8 @@
 <resources>
+    <string name="main_app_name">Main</string>
+    <string name="main_home">主页</string>
+    <string name="main_mine">我的</string>
+    <string name="main_message">消息</string>
+    <string name="main_category">分类</string>
+    <string name="main_track">足迹</string>
 </resources>
