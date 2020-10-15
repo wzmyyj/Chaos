@@ -27,7 +27,7 @@ object Android {
 
 enum class Module(val tag: String, val path: String, val runAlone: Boolean) {
     App(
-        tag = "chaos",
+        tag = "app",
         path = ":app",
         runAlone = true
     ),

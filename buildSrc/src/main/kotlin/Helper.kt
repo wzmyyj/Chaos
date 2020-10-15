@@ -135,7 +135,7 @@ fun Project.setupApp(module: Module) {
     setupCommon(module)
     useARouter()
     android_.apply {
-        defaultConfig.applicationId = getApplicationId(module.tag)
+        defaultConfig.applicationId = getApplicationId("chaos")
         flavorDimensions("channel")
         productFlavors {
 //            // 日常测试

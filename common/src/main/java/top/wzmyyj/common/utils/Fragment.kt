@@ -35,7 +35,6 @@ fun FragmentManager.replaceFragment(
     isAddToBackStack: Boolean = false, tag: String? = null
 ) {
     FragmentUtil.replaceFragment(this, containerId, fragment, isAddToBackStack, tag)
-
 }
 
 /**
