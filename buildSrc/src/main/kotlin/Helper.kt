@@ -74,7 +74,24 @@ fun Project.setupCommon(module: Module) {
         implementation2(Dependencies.androidx_recyclerview)
         implementation2(Dependencies.androidx_lifecycle_ext)
         implementation2(Dependencies.androidx_lifecycle_java8)
-        implementation2(Dependencies.kotlin_jdk)
+        // http
+        implementation2(Dependencies.retrofit)
+        implementation2(Dependencies.retrofit_gsonConverter)
+        implementation2(Dependencies.retrofit_rxJavaAdapter)
+        implementation2(Dependencies.okHttp)
+        implementation2(Dependencies.okHttp_loggingInterceptor)
+        // rx
+        implementation2(Dependencies.rx_java)
+        implementation2(Dependencies.rx_android)
+        implementation2(Dependencies.rx_binding)
+        // glide
+        implementation2(Dependencies.glide)
+        implementation2(Dependencies.glide_okHttp)
+        implementation2(Dependencies.glide_compiler)
+        implementation2(Dependencies.glide_transformation)
+        // weight
+        implementation2(Dependencies.smart_refreshLayout)
+
         api2(project(":lib_base"))
         api2(project(":lib_utils"))
         api2(project(":lib_weight"))

@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#ffffff</color>
-    <color name="colorPrimaryDark">#aaaaaa</color>
+    <color name="colorPrimary">#3399FF</color>
+    <color name="colorPrimaryDark">#AAAAAA</color>
     <color name="colorAccent">#777777</color>
 
-    <color name="colorMain">#0099ff</color>
-
     <color name="colorClarity">#0000</color>
-    <color name="colorWhite">#ffffff</color>
+    <color name="colorWhite">#FFFFFF</color>
     <color name="colorYellow">#FFFF00</color>
     <color name="colorRed">#EE2200</color>
     <color name="colorGreen">#00AA00</color>

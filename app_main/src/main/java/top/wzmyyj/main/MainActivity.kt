@@ -1,7 +1,6 @@
 package top.wzmyyj.main
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import com.alibaba.android.arouter.facade.annotation.Route
 import top.wzmyyj.common.app.CBaseActivity
 import top.wzmyyj.common.utils.replaceFragment
