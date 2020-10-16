@@ -35,8 +35,6 @@ class MainFragment : CBaseFragment() {
 
     private val trackService by lazy { getService(ITrackService::class.java) }
 
-    private val messageService by lazy { getService(IMessageService::class.java) }
-
     private val mineService by lazy { getService(IMineService::class.java) }
 
     private val helper: PagerTabHelper by lazy {
@@ -44,7 +42,6 @@ class MainFragment : CBaseFragment() {
             addHome()
             addCategory()
             addTrack()
-            addMessage()
             addMine()
         }
     }
@@ -78,14 +75,6 @@ class MainFragment : CBaseFragment() {
     private fun PagerTabHelper.addTrack() {
         val fragment = trackService?.getFragment() ?: return
         add(fragment, R.string.main_track.string(), R.drawable.main_selector_track.drawable())
-    }
-
-    /**
-     * Add Message page.
-     */
-    private fun PagerTabHelper.addMessage() {
-        val fragment = messageService?.getFragment() ?: return
-        add(fragment, R.string.main_message.string(), R.drawable.main_selector_message.drawable())
     }
 
     /**

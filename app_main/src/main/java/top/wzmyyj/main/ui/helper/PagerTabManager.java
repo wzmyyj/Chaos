@@ -57,9 +57,9 @@ public class PagerTabManager {
     }
 
     @ColorInt
-    int selectColor = 0xff666666;
+    int selectColor = 0xFF666666;
     @ColorInt
-    int unSelectColor = 0xffbbbbbb;
+    int unSelectColor = 0xFFAAAAAA;
 
 
     public void setSelectColor(@ColorInt int color) {
