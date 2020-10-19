@@ -23,7 +23,7 @@ public final class SureUtil {
      * No instances.
      */
     private SureUtil() {
-        throw new UnsupportedOperationException(TAG + "You can't instantiate me.");
+        throw new UnsupportedOperationException(TAG + ": You can't instantiate me.");
     }
 
     /**

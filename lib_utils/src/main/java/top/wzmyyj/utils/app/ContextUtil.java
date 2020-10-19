@@ -27,7 +27,7 @@ public final class ContextUtil {
      * No instances.
      */
     private ContextUtil() {
-        throw new UnsupportedOperationException(TAG + "You can't instantiate me.");
+        throw new UnsupportedOperationException(TAG + ": You can't instantiate me.");
     }
 
     /**

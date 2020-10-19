@@ -27,7 +27,7 @@ public final class LogUtil {
      * No instances.
      */
     private LogUtil() {
-        throw new UnsupportedOperationException(TAG + "You can't instantiate me.");
+        throw new UnsupportedOperationException(TAG + ": You can't instantiate me.");
     }
 
     /**

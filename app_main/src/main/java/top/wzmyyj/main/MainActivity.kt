@@ -2,7 +2,7 @@ package top.wzmyyj.main
 
 import android.os.Bundle
 import com.alibaba.android.arouter.facade.annotation.Route
-import top.wzmyyj.common.app.CBaseActivity
+import top.wzmyyj.common.base.CBaseActivity
 import top.wzmyyj.common.utils.replaceFragment
 import top.wzmyyj.common_service.ActivityPath
 import top.wzmyyj.main.ui.MainFragment

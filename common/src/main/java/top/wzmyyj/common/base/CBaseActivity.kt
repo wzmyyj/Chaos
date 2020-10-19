@@ -1,4 +1,4 @@
-package top.wzmyyj.common.app
+package top.wzmyyj.common.base
 
 import android.content.res.Resources
 import top.wzmyyj.base.app.BaseActivity

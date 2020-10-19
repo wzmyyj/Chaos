@@ -34,7 +34,7 @@ public final class LifecycleUtil {
      * No instances.
      */
     private LifecycleUtil() {
-        throw new UnsupportedOperationException(TAG + "You can't instantiate me.");
+        throw new UnsupportedOperationException(TAG + ": You can't instantiate me.");
     }
 
     /**

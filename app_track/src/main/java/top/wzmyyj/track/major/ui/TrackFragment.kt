@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import top.wzmyyj.common.app.CBaseFragment
+import top.wzmyyj.common.base.CBaseFragment
 import top.wzmyyj.track.databinding.TrackFragmentBinding
 
 /**

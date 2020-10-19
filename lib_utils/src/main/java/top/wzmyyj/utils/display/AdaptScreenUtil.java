@@ -28,7 +28,7 @@ public final class AdaptScreenUtil {
      * No instances.
      */
     private AdaptScreenUtil() {
-        throw new UnsupportedOperationException(TAG + "You can't instantiate me.");
+        throw new UnsupportedOperationException(TAG + ": You can't instantiate me.");
     }
 
     /**

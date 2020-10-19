@@ -1,4 +1,4 @@
-package top.wzmyyj.common.app
+package top.wzmyyj.common.base
 
 import android.graphics.drawable.Drawable
 import androidx.annotation.ColorInt

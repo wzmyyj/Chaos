@@ -25,7 +25,7 @@ public final class ToastUtil {
      * No instances.
      */
     private ToastUtil() {
-        throw new UnsupportedOperationException(TAG + "You can't instantiate me.");
+        throw new UnsupportedOperationException(TAG + ": You can't instantiate me.");
     }
 
     /**

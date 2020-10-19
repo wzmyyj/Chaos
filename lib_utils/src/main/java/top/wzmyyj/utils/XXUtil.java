@@ -23,7 +23,7 @@ public final class XXUtil {
      * No instances.
      */
     private XXUtil() {
-        throw new UnsupportedOperationException(TAG + "You can't instantiate me.");
+        throw new UnsupportedOperationException(TAG + ": You can't instantiate me.");
     }
 
     /**

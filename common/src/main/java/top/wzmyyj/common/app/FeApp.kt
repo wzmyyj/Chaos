@@ -12,10 +12,16 @@ import top.wzmyyj.utils.tools.ToastUtil
  * @version 1.1.0
  * @since 1.1.0
  */
-abstract class CBaseApplication : Application() {
+open class FeApp : Application() {
+
+    companion object {
+        private lateinit var app: FeApp
+        fun get() = app
+    }
 
     override fun onCreate() {
         super.onCreate()
+        app = this
         ToastUtil.init(this)
         LogUtil.init("feling", BuildConfig.DEBUG)
     }

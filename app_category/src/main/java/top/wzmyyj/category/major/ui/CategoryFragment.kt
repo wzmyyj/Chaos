@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import top.wzmyyj.category.databinding.CategoryFragmentBinding
-import top.wzmyyj.common.app.CBaseFragment
+import top.wzmyyj.common.base.CBaseFragment
 
 /**
  * Created on 2020/10/14.

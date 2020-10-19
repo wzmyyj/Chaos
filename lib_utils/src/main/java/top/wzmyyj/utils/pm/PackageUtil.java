@@ -26,7 +26,7 @@ public final class PackageUtil {
     private static final String TAG = PackageUtil.class.getSimpleName();
 
     private PackageUtil() {
-        throw new UnsupportedOperationException(TAG + "You can't instantiate me.");
+        throw new UnsupportedOperationException(TAG + ": You can't instantiate me.");
     }
 
     /**

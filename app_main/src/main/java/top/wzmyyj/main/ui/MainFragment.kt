@@ -4,11 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import top.wzmyyj.common.app.CBaseFragment
+import top.wzmyyj.common.base.CBaseFragment
 import top.wzmyyj.common_service.RouterManager.getService
 import top.wzmyyj.common_service.category.ICategoryService
 import top.wzmyyj.common_service.home.IHomeService
-import top.wzmyyj.common_service.message.IMessageService
 import top.wzmyyj.common_service.mine.IMineService
 import top.wzmyyj.common_service.track.ITrackService
 import top.wzmyyj.main.R

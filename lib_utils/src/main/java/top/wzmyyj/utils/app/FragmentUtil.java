@@ -25,7 +25,7 @@ public final class FragmentUtil {
      * No instances.
      */
     private FragmentUtil() {
-        throw new UnsupportedOperationException(TAG + "You can't instantiate me.");
+        throw new UnsupportedOperationException(TAG + ": You can't instantiate me.");
     }
 
     /**
