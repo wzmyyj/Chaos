@@ -87,7 +87,7 @@ fun Project.setupCommon(module: Module) {
         // glide
         implementation2(Dependencies.glide)
         implementation2(Dependencies.glide_okHttp)
-        implementation2(Dependencies.glide_compiler)
+        kapt2(Dependencies.glide_compiler)
         implementation2(Dependencies.glide_transformation)
         // weight
         implementation2(Dependencies.smart_refreshLayout)
