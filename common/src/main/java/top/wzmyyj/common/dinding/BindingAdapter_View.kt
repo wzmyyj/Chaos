@@ -10,13 +10,12 @@ import top.wzmyyj.common.utils.pt2px
 /**
  * Created on 2020/10/19.
  *
+ * BindingAdapter of View.
+ *
  * @author feling
  * @version 1.0.0
  * @since 1.0.0
  */
-//------------------------View --------------------------//
-
-
 @BindingAdapter(value = ["binding_isGone"], requireAll = true)
 fun View.bindingIsGone(isGone: Boolean) {
     visibility = if (isGone) View.GONE else View.VISIBLE

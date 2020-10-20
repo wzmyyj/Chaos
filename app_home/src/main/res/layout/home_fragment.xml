@@ -10,16 +10,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/srl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-<!--        <com.google.android.material.switchmaterial.SwitchMaterial-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent">-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-<!--            <androidx.recyclerview.widget.RecyclerView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"/>-->
-
-<!--        </com.google.android.material.switchmaterial.SwitchMaterial>-->
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -24,6 +24,8 @@ import static androidx.fragment.app.FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CU
 /**
  * Created on 2019/09/30.
  *
+ * Helper that fast implementation of Pager-Tab structure.
+ *
  * @author feling
  * @version 1.0.0
  * @since 1.0.0
@@ -67,7 +69,6 @@ public class PagerTabHelper {
         };
         mViewPager.setAdapter(mAdapter);
         mTabLayout.setupWithViewPager(mViewPager);
-
         setTabStyle();
         int which = manager.firstWhich;
         if (which < manager.size()) {

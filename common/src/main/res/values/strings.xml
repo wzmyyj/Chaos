@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="common_app_name">Common</string>
+    <string name="common_smart_refresh_head_release">松开立即刷新</string>
+    <string name="common_smart_refresh_loading">正在刷新</string>
+    <string name="common_smart_no_more">已经到底咯~</string>
+</resources>

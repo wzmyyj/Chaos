@@ -12,6 +12,8 @@ import java.util.List;
 /**
  * Created on 2019/09/30.
  *
+ * Pager-Tab data Manager.
+ *
  * @author feling
  * @version 1.0.0
  * @since 1.0.0

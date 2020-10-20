@@ -12,14 +12,12 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener
 /**
  * Created on 2020/10/16.
  *
+ * BindingAdapter of SmartRefreshLayout.
+ *
  * @author feling
  * @version 1.0.0
  * @since 1.0.0
  */
-
-//------------------------SmartRefreshLayout--------------------------//
-
-
 @BindingAdapter("binding_srl_onRefreshLoadMoreListener")
 fun SmartRefreshLayout.bindingOnRefreshLoadMoreListener(listener: OnRefreshLoadMoreListener) {
     setOnRefreshLoadMoreListener(listener)
