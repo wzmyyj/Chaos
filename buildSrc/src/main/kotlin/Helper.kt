@@ -95,6 +95,7 @@ fun Project.setupCommon(module: Module) {
         api2(project(":lib_base"))
         api2(project(":lib_utils"))
         api2(project(":lib_weight"))
+        api2(project(":lib_adapter"))
     }
 }
 

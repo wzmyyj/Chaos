@@ -1,10 +1,10 @@
 package top.wzmyyj.chaos
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import top.wzmyyj.common.base.CBaseActivity
 import top.wzmyyj.common_service.RouterManager
 
-class LauncherActivity : AppCompatActivity() {
+class LauncherActivity : CBaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -4,6 +4,7 @@ import android.content.res.Resources;
 import android.util.DisplayMetrics;
 import android.util.Log;
 
+import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 
 import java.lang.reflect.Field;
@@ -48,6 +49,7 @@ public final class AdaptScreenUtil {
      * @param designWidth Screen width of the design draft, in Pt
      * @return After adaptation resources
      */
+    @MainThread
     public static Resources adaptWidth(@NonNull final Resources resources, final int designWidth) {
         float newXdpi = (resources.getDisplayMetrics().widthPixels * 72f) / designWidth;
         applyDisplayMetrics(resources, newXdpi);
@@ -60,6 +62,7 @@ public final class AdaptScreenUtil {
      * @param resources resources
      * @return After adaptation resources
      */
+    @MainThread
     public static Resources closeAdapt(@NonNull final Resources resources) {
         float newXdpi = Resources.getSystem().getDisplayMetrics().density * 72f;
         applyDisplayMetrics(resources, newXdpi);

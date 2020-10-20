@@ -64,5 +64,6 @@ object Dependencies {
 
     // weight
     const val smart_refreshLayout = "com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1"
+    const val banner = "com.youth.banner:banner:1.4.10"
 
 }

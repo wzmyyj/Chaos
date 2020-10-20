@@ -68,7 +68,7 @@ public class DisplayUtil {
      * @param context context
      * @return metrics width
      */
-    public int getMetricsWidth(Activity context) {
+    public static int getMetricsWidth(@NonNull Activity context) {
         DisplayMetrics dm = new DisplayMetrics();
         context.getWindowManager().getDefaultDisplay().getMetrics(dm);
         return dm.widthPixels;
@@ -80,7 +80,7 @@ public class DisplayUtil {
      * @param context context
      * @return metrics height
      */
-    public int getMetricsHeight(Activity context) {
+    public static int getMetricsHeight(@NonNull Activity context) {
         DisplayMetrics dm = new DisplayMetrics();
         context.getWindowManager().getDefaultDisplay().getMetrics(dm);
         return dm.heightPixels;

@@ -2,7 +2,13 @@ package top.wzmyyj.utils.display;
 
 import android.app.Activity;
 import android.content.res.Resources;
+import android.graphics.Color;
+import android.os.Build;
+import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
+
+import androidx.annotation.NonNull;
 
 /**
  * Created on 2020/10/19.
@@ -33,7 +39,7 @@ public class StatusBarUtil {
      *
      * @return height
      */
-    public int getStatusBarHeight() {
+    public static int getStatusBarHeight() {
         int result = 0;
         int resId = Resources.getSystem().getIdentifier("status_bar_height", "dimen", "android");
         if (resId > 0) {
@@ -43,21 +49,72 @@ public class StatusBarUtil {
     }
 
     /**
+     * Set statusBar immersive or not.
+     *
+     * @param activity  activity
+     * @param immersive is immersive?
+     */
+    public static void immersiveBar(@NonNull Activity activity, Boolean immersive) {
+        Window window = activity.getWindow();
+        int flag = window.getDecorView().getWindowSystemUiVisibility();
+        if (immersive) {
+            flag |= View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
+        } else {
+            flag |= View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
+        }
+        window.getDecorView().setSystemUiVisibility(flag);
+    }
+
+    /**
+     * Set text white.
+     *
+     * @param activity activity
+     */
+    public static void whiteText(@NonNull Activity activity) {
+        Window window = activity.getWindow();
+        window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+    }
+
+    /**
+     * Set text black.
+     *
+     * @param activity activity
+     */
+    public static void blackText(@NonNull Activity activity) {
+        Window window = activity.getWindow();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            window.getDecorView().setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        }
+    }
+
+    /**
+     * Set bg transparent.
+     *
+     * @param activity activity
+     */
+    public static void transparentBg(@NonNull Activity activity) {
+        Window window = activity.getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.setStatusBarColor(Color.TRANSPARENT);
+    }
+
+    /**
      * Hide statusBar.
      *
-     * @param context context
+     * @param activity activity
      */
-    public static void hideStatusBar(Activity context) {
-        context.getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    public static void hideStatusBar(@NonNull Activity activity) {
+        activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 
     /**
      * Show statusBar.
      *
-     * @param context context
+     * @param activity activity
      */
-    public static void showStatusBar(Activity context) {
-        context.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    public static void showStatusBar(@NonNull Activity activity) {
+        activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 
 }
