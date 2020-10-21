@@ -64,8 +64,8 @@ fun Project.setupCommon(module: Module) {
     setupCore()
     android_.apply {
         resourcePrefix(getPrefix(module.tag))
-        @Suppress("UnstableApiUsage")
-        buildFeatures.dataBinding = true
+        @Suppress("DEPRECATION")
+        dataBinding.isEnabled = true
         defaultConfig.multiDexEnabled = true
     }
     dependencies {
