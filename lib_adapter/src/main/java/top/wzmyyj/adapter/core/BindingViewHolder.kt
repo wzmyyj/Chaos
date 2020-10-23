@@ -12,4 +12,4 @@ import androidx.recyclerview.widget.RecyclerView
  * @version 1.0.0
  * @since 1.0.0
  */
-open class BaseViewHolder(val binding: ViewDataBinding) : RecyclerView.ViewHolder(binding.root)
+open class BindingViewHolder(val binding: ViewDataBinding) : RecyclerView.ViewHolder(binding.root)
