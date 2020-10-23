@@ -18,6 +18,8 @@ import top.wzmyyj.adapter.core.IFeAdapter
  * @since 1.0.0
  * @see ListAdapter
  * @see DiffUtil
+ * @see FeAdapterHelper
+ * @see IFeAdapter
  */
 abstract class DiffListAdapter<M : IDiffVhModelType>(callback: DiffCallBack<M>) :
     ListAdapter<M, BindingViewHolder>(callback), IFeAdapter<M> {

@@ -11,6 +11,7 @@ import androidx.databinding.ViewDataBinding
  * @author feling
  * @version 1.0.0
  * @since 1.0.0
+ * @see ViewTypeDelegate
  */
 class ViewTypeDelegateManager<M : IVhModelType> {
 

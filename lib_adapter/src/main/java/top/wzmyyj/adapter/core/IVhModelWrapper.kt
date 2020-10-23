@@ -10,6 +10,7 @@ import java.lang.RuntimeException
  * @author feling
  * @version 1.0.0
  * @since 1.0.0
+ * @see IVhModelType
  */
 interface IVhModelWrapper<M : IVhModelType> : IVhModelType {
 

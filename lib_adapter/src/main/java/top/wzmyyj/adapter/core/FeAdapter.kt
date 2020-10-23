@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
  * @version 1.0.0
  * @since 1.0.0
  * @see RecyclerView.Adapter
+ * @see FeAdapterHelper
+ * @see IFeAdapter
  */
 abstract class FeAdapter<M : IVhModelType> : RecyclerView.Adapter<BindingViewHolder>(),
     IFeAdapter<M> {

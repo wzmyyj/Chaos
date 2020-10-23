@@ -10,7 +10,7 @@ import android.view.ViewGroup
  * @author feling
  * @version 1.0.0
  * @since 1.0.0
- * @see FeAdapter
+ * @see IFeAdapter
  */
 class FeAdapterHelper<M : IVhModelType>(private val adapter: IFeAdapter<M>) {
 
