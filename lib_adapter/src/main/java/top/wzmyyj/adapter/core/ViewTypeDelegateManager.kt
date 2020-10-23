@@ -39,7 +39,7 @@ class ViewTypeDelegateManager<M : IVhModelType> {
     }
 
     /**
-     * add VTD into manager.
+     * Add VTD into manager.
      *
      * @param ivd VTD
      */

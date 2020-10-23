@@ -57,4 +57,12 @@ abstract class FeAdapter<M : IVhModelType> : RecyclerView.Adapter<BindingViewHol
         return dataList
     }
 
+    override fun refreshItems(items: List<M>) {
+        helper.refreshItems(items, dataList) { position ->
+            if (position in 0 until itemCount) {
+                notifyItemChanged(position)
+            }
+        }
+    }
+
 }

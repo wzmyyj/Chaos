@@ -19,7 +19,7 @@ import top.wzmyyj.adapter.core.IFeAdapter
  * @see ListAdapter
  * @see DiffUtil
  */
-abstract class DiffListAdapter<M : IDiffVhModelType>(callback: DiffCallBack<M> = DiffCallBack()) :
+abstract class DiffListAdapter<M : IDiffVhModelType>(callback: DiffCallBack<M>) :
     ListAdapter<M, BindingViewHolder>(callback), IFeAdapter<M> {
 
     private val helper by lazy { FeAdapterHelper(this) }
@@ -61,19 +61,30 @@ abstract class DiffListAdapter<M : IDiffVhModelType>(callback: DiffCallBack<M> =
         return readOnlyList
     }
 
-    open class DiffCallBack<M : IDiffVhModelType> : DiffUtil.ItemCallback<M>() {
+    /**
+     * Please do not use it with setList()!
+     */
+    override fun refreshItems(items: List<M>) {
+        helper.refreshItems(items, readOnlyList) { position ->
+            if (position in 0 until itemCount) {
+                notifyItemChanged(position)
+            }
+        }
+    }
 
-        override fun areContentsTheSame(oldItem: M, newItem: M): Boolean {
+    open class DiffCallBack<N : IDiffVhModelType> : DiffUtil.ItemCallback<N>() {
+
+        override fun areContentsTheSame(oldItem: N, newItem: N): Boolean {
             // Judge whether the contents of two items are the same.
             return oldItem.areContentsTheSame(newItem)
         }
 
-        override fun areItemsTheSame(oldItem: M, newItem: M): Boolean {
+        override fun areItemsTheSame(oldItem: N, newItem: N): Boolean {
             // Judge whether two items use the same item.
             return oldItem.areItemsTheSame(newItem)
         }
 
-        override fun getChangePayload(oldItem: M, newItem: M): Any? {
+        override fun getChangePayload(oldItem: N, newItem: N): Any? {
             // Advanced usage, used to extract changes and refresh local variables accurately.
             // Not for the time being.
             return null

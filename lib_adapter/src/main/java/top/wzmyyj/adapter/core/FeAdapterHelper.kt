@@ -51,6 +51,18 @@ class FeAdapterHelper<M : IVhModelType>(private val adapter: IFeAdapter<M>) {
     }
 
     /**
+     * Compare the list to find the same items and refresh them.
+     */
+    fun refreshItems(items: List<M>, dataList: List<M>, notify: (Int) -> Unit) {
+        val li = transform(items)
+        for (m in li) {
+            if (m in dataList) {
+                notify(dataList.indexOf(m))
+            }
+        }
+    }
+
+    /**
      * Transform data list. Always return a new list.
      */
     fun transform(original: List<M>): List<M> {

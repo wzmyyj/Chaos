@@ -2,6 +2,7 @@ package top.wzmyyj.adapter.core
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.annotation.MainThread
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 
@@ -14,6 +15,7 @@ import androidx.databinding.ViewDataBinding
  * @version 1.0.0
  * @since 1.0.0
  */
+@MainThread
 interface IFeAdapter<M : IVhModelType> {
 
     /**
@@ -55,5 +57,10 @@ interface IFeAdapter<M : IVhModelType> {
      * Get item by position.
      */
     fun getItem(position: Int): M? = getList().getOrNull(position)
+
+    /**
+     * Refresh some items.
+     */
+    fun refreshItems(items: List<M>)
 
 }
