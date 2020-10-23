@@ -24,7 +24,7 @@ interface IFeAdapter<M : IVhModelType> {
     fun onCreateVHForAll(binding: ViewDataBinding)
 
     /**
-     * What to do when binding the viewHolder for all
+     * What to do when binding the viewHolder for all.
      */
     fun onBindVHForAll(binding: ViewDataBinding, m: M)
 

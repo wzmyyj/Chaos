@@ -1,11 +1,12 @@
 package top.wzmyyj.home.major.ui
 
-import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import com.scwang.smartrefresh.layout.api.RefreshLayout
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener
 import top.wzmyyj.common.base.CBaseFragment
+import top.wzmyyj.common.utils.getViewModel
 import top.wzmyyj.home.databinding.HomeFragmentBinding
+import top.wzmyyj.home.major.vm.HomeViewModel
 
 /**
  * Created on 2020/10/14.
@@ -20,13 +21,46 @@ class HomeFragment : CBaseFragment() {
         fun newInstance() = HomeFragment()
     }
 
+    interface OnEventListener : OnRefreshListener {
+        /**
+         * Search.
+         */
+        fun onSearchClick()
+    }
+
     private val binding by lazy { HomeFragmentBinding.inflate(layoutInflater) }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
-        return binding.root
+    private val vm by lazy { getViewModel(HomeViewModel::class.java) }
+
+    override fun rootView(): View? = binding.root
+
+    override fun initData() {
+
     }
+
+    override fun initView() {
+        binding.lifecycleOwner = viewLifecycleOwner
+        binding.vm = vm
+        binding.listener = eventListener
+    }
+
+    override fun subscribeUI() {
+
+    }
+
+    //--------------event listener-------------//
+
+    private val eventListener = object : OnEventListener {
+
+        override fun onSearchClick() {
+            TODO("Not yet implemented")
+        }
+
+        override fun onRefresh(refreshLayout: RefreshLayout?) {
+            TODO("Not yet implemented")
+        }
+
+    }
+
 
 }

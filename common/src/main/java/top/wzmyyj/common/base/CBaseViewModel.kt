@@ -1,4 +1,4 @@
-package top.wzmyyj.common.lifecycle
+package top.wzmyyj.common.base
 
 import android.app.Application
 import androidx.lifecycle.DefaultLifecycleObserver

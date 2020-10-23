@@ -4,6 +4,14 @@
 
     <data>
 
+        <variable
+            name="vm"
+            type="top.wzmyyj.home.major.vm.HomeViewModel" />
+
+        <variable
+            name="listener"
+            type="top.wzmyyj.home.major.ui.HomeFragment.OnEventListener" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,6 +24,7 @@
             android:layout_height="match_parent">
 
             <androidx.recyclerview.widget.RecyclerView
+                binding_rv_noAnim="@{true}"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"

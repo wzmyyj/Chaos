@@ -17,14 +17,14 @@ class FeAdapterHelper<M : IVhModelType>(private val adapter: IFeAdapter<M>) {
     private val ivdManager: ViewTypeDelegateManager<M> = ViewTypeDelegateManager()
 
     /**
-     * Called by RecyclerView when it starts observing this Adapter.
+     * Called when RecyclerView starts observing this Adapter.
      */
     fun onAttachedToRecyclerView() {
         adapter.initManager(ivdManager)
     }
 
     /**
-     * Called by RecyclerView when it stops observing this Adapter.
+     * Called when RecyclerView stops observing this Adapter.
      */
     fun onDetachedFromRecyclerView() {
         ivdManager.clear()
