@@ -50,6 +50,10 @@ abstract class DiffListAdapter<M : IDiffVhModelType>(callback: DiffCallBack<M>) 
         return super<ListAdapter>.getItem(position)
     }
 
+    override fun getItemViewType(position: Int): Int {
+        return getItem(position)?.getViewType() ?: 0
+    }
+
     override fun setList(list: List<M>) {
         val li = helper.transform(list)
         readOnlyList.clear()

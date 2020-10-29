@@ -3,9 +3,12 @@ package top.wzmyyj.home.major.ui
 import android.view.View
 import com.scwang.smartrefresh.layout.api.RefreshLayout
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener
+import kotlinx.android.synthetic.main.home_fragment.*
 import top.wzmyyj.common.base.CBaseFragment
 import top.wzmyyj.common.utils.getViewModel
 import top.wzmyyj.home.databinding.HomeFragmentBinding
+import top.wzmyyj.home.major.model.HomeHeaderVhModel
+import top.wzmyyj.home.major.ui.adapter.HomeAdapter
 import top.wzmyyj.home.major.vm.HomeViewModel
 
 /**
@@ -32,6 +35,8 @@ class HomeFragment : CBaseFragment() {
 
     private val vm by lazy { getViewModel(HomeViewModel::class.java) }
 
+    private val rvAdapter by lazy { HomeAdapter(eventListener) }
+
     override fun rootView(): View? = binding.root
 
     override fun initData() {
@@ -42,6 +47,8 @@ class HomeFragment : CBaseFragment() {
         binding.lifecycleOwner = viewLifecycleOwner
         binding.vm = vm
         binding.listener = eventListener
+        binding.rv.adapter = rvAdapter
+        rvAdapter.setList(listOf(HomeHeaderVhModel(), HomeHeaderVhModel(), HomeHeaderVhModel()))
     }
 
     override fun subscribeUI() {
@@ -50,7 +57,7 @@ class HomeFragment : CBaseFragment() {
 
     //--------------event listener-------------//
 
-    private val eventListener = object : OnEventListener {
+    private val eventListener = object : OnEventListener, HomeAdapter.OnAdapterEventListener {
 
         override fun onSearchClick() {
             TODO("Not yet implemented")
