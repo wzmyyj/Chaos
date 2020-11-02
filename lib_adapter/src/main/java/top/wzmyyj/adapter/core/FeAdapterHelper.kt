@@ -11,6 +11,7 @@ import android.view.ViewGroup
  * @version 1.0.0
  * @since 1.0.0
  * @see IFeAdapter
+ * @see FeAdapter
  */
 class FeAdapterHelper<M : IVhModelType>(private val adapter: IFeAdapter<M>) {
 
