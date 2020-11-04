@@ -1,4 +1,4 @@
-package top.wzmyyj.common.dinding
+package top.wzmyyj.common.binding
 
 import androidx.annotation.ColorInt
 import androidx.databinding.BindingAdapter
@@ -17,6 +17,7 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener
  * @author feling
  * @version 1.0.0
  * @since 1.0.0
+ * @see SmartRefreshLayout
  */
 @BindingAdapter("binding_srl_onRefreshLoadMoreListener")
 fun SmartRefreshLayout.bindingOnRefreshLoadMoreListener(listener: OnRefreshLoadMoreListener) {

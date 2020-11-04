@@ -36,21 +36,20 @@
     <color name="colorF5F5F5">#F5F5F5</color>
     <color name="colorFBFBFB">#FBFBFB</color>
 
-    <color name="colorAhp_White_i">#07ffffff</color>
-    <color name="colorAhp_White_1">#11ffffff</color>
-    <color name="colorAhp_White_2">#22ffffff</color>
-    <color name="colorAhp_White_3">#33ffffff</color>
-    <color name="colorAhp_White_4">#44ffffff</color>
-    <color name="colorAhp_White_5">#55ffffff</color>
-    <color name="colorAhp_White_6">#66ffffff</color>
-    <color name="colorAhp_White_7">#77ffffff</color>
-    <color name="colorAhp_White_8">#88ffffff</color>
-    <color name="colorAhp_White_9">#99ffffff</color>
-    <color name="colorAhp_White_a">#aaffffff</color>
-    <color name="colorAhp_White_b">#bbffffff</color>
-    <color name="colorAhp_White_c">#ccffffff</color>
-    <color name="colorAhp_White_d">#ddffffff</color>
-    <color name="colorAhp_White_e">#eeffffff</color>
+    <color name="colorAhp_White_1">#11FFFFFF</color>
+    <color name="colorAhp_White_2">#22FFFFFF</color>
+    <color name="colorAhp_White_3">#33FFFFFF</color>
+    <color name="colorAhp_White_4">#44FFFFFF</color>
+    <color name="colorAhp_White_5">#55FFFFFF</color>
+    <color name="colorAhp_White_6">#66FFFFFF</color>
+    <color name="colorAhp_White_7">#77FFFFFF</color>
+    <color name="colorAhp_White_8">#88FFFFFF</color>
+    <color name="colorAhp_White_9">#99FFFFFF</color>
+    <color name="colorAhp_White_a">#AAFFFFFF</color>
+    <color name="colorAhp_White_b">#BBFFFFFF</color>
+    <color name="colorAhp_White_c">#CCFFFFFF</color>
+    <color name="colorAhp_White_d">#DDFFFFFF</color>
+    <color name="colorAhp_White_e">#EEFFFFFF</color>
 
     <color name="colorAhp_Black_i">#07000000</color>
     <color name="colorAhp_Black_1">#11000000</color>

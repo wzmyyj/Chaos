@@ -1,4 +1,4 @@
-package top.wzmyyj.common.dinding
+package top.wzmyyj.common.binding
 
 import android.graphics.Outline
 import android.view.View

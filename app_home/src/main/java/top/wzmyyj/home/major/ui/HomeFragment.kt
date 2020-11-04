@@ -3,11 +3,10 @@ package top.wzmyyj.home.major.ui
 import android.view.View
 import com.scwang.smartrefresh.layout.api.RefreshLayout
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener
-import kotlinx.android.synthetic.main.home_fragment.*
 import top.wzmyyj.common.base.CBaseFragment
 import top.wzmyyj.common.utils.getViewModel
 import top.wzmyyj.home.databinding.HomeFragmentBinding
-import top.wzmyyj.home.major.model.HomeHeaderVhModel
+import top.wzmyyj.home.major.model.HomeBannerVhModel
 import top.wzmyyj.home.major.ui.adapter.HomeAdapter
 import top.wzmyyj.home.major.vm.HomeViewModel
 
@@ -26,7 +25,7 @@ class HomeFragment : CBaseFragment() {
 
     interface OnEventListener : OnRefreshListener {
         /**
-         * Search.
+         * Search view clicked.
          */
         fun onSearchClick()
     }
@@ -48,7 +47,11 @@ class HomeFragment : CBaseFragment() {
         binding.vm = vm
         binding.listener = eventListener
         binding.rv.adapter = rvAdapter
-        rvAdapter.setList(listOf(HomeHeaderVhModel(), HomeHeaderVhModel(), HomeHeaderVhModel()))
+        rvAdapter.setList(
+            listOf(
+                HomeBannerVhModel()
+            )
+        )
     }
 
     override fun subscribeUI() {
@@ -64,6 +67,10 @@ class HomeFragment : CBaseFragment() {
         }
 
         override fun onRefresh(refreshLayout: RefreshLayout?) {
+            TODO("Not yet implemented")
+        }
+
+        override fun onBannerClick(item: HomeBannerVhModel, position: Int) {
             TODO("Not yet implemented")
         }
 

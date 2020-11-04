@@ -1,4 +1,4 @@
-package top.wzmyyj.common.dinding
+package top.wzmyyj.common.binding
 
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -13,6 +13,8 @@ import top.wzmyyj.adapter.core.IVhModelType
  * @author feling
  * @version 1.0.0
  * @since 1.0.0
+ * @see RecyclerView
+ * @see IFeAdapter
  */
 @Suppress("UNCHECKED_CAST")
 @BindingAdapter(value = ["binding_rv_dataList"], requireAll = true)

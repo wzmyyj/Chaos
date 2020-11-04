@@ -3,7 +3,7 @@ package top.wzmyyj.home.major.ui.adapter
 import androidx.databinding.ViewDataBinding
 import top.wzmyyj.common.base.adapter.CBaseDiffAdapter
 import top.wzmyyj.home.BR
-import top.wzmyyj.home.major.model.HomeHeaderVhModel
+import top.wzmyyj.home.major.model.HomeBannerVhModel
 import top.wzmyyj.home.major.model.IHomeVhModelType
 
 /**
@@ -24,6 +24,6 @@ class HomeAdapter(private val listener: OnAdapterEventListener) :
         binding.setVariable(BR.item, m)
     }
 
-    interface OnAdapterEventListener : HomeHeaderVhModel.OnItemEventListener
+    interface OnAdapterEventListener : HomeBannerVhModel.OnItemEventListener
 
 }

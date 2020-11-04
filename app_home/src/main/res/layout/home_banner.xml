@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="item"
+            type="top.wzmyyj.home.major.model.HomeBannerVhModel" />
+
+        <variable
+            name="listener"
+            type="top.wzmyyj.home.major.model.HomeBannerVhModel.OnItemEventListener" />
+
+    </data>
+
+    <com.youth.banner.Banner
+        android:id="@+id/banner"
+        binding_banner_clickListener="@{(p)->listener.onBannerClick(item,p)}"
+        binding_banner_images="@{item.imageList}"
+        binding_banner_titles="@{item.titleList}"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/pt_200"
+        android:background="@color/colorEEEEEE"
+        app:banner_default_image="@color/colorEEEEEE"
+        app:indicator_drawable_selected="@mipmap/home_banner_point_white"
+        app:indicator_drawable_unselected="@mipmap/home_banner_point_gray"
+        app:indicator_height="@dimen/pt_9"
+        app:indicator_margin="@dimen/pt_3"
+        app:indicator_width="@dimen/pt_9"
+        app:scroll_time="2000"
+        app:title_background="@color/colorAhp_White_5"
+        app:title_height="@dimen/pt_25"
+        app:title_textcolor="@color/colorWhite"
+        app:title_textsize="@dimen/pt_12" />
+
+</layout>
