@@ -1,10 +1,13 @@
 package top.wzmyyj.home.major.ui.adapter
 
 import androidx.databinding.ViewDataBinding
+import top.wzmyyj.adapter.core.ViewTypeDelegateManager
 import top.wzmyyj.common.base.adapter.CBaseDiffAdapter
 import top.wzmyyj.home.BR
 import top.wzmyyj.home.major.model.HomeBannerVhModel
 import top.wzmyyj.home.major.model.IHomeVhModelType
+import top.wzmyyj.home.major.ui.adapter.vtd.HomeBannerVTD
+import top.wzmyyj.home.major.ui.adapter.vtd.HomeTableVTD
 
 /**
  * Created on 2020/10/23.
@@ -24,6 +27,13 @@ class HomeAdapter(private val listener: OnAdapterEventListener) :
         binding.setVariable(BR.item, m)
     }
 
-    interface OnAdapterEventListener : HomeBannerVhModel.OnItemEventListener
+    override fun initManager(manager: ViewTypeDelegateManager<IHomeVhModelType>) {
+        manager.add(HomeBannerVTD())
+        manager.add(HomeTableVTD(listener))
+    }
+
+    interface OnAdapterEventListener :
+        HomeBannerVhModel.OnItemEventListener,
+        HomeTableAdapter.OnAdapterEventListener
 
 }

@@ -3,4 +3,8 @@
     <color name="colorPrimary">#00AAFF</color>
     <color name="colorPrimaryDark">#AAAAAA</color>
     <color name="colorAccent">#777777</color>
+
+    <color name="colorLine">#EEEEEE</color>
+    <color name="colorDivider">#F5F5F5</color>
+
 </resources>

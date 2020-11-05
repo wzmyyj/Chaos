@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="top.wzmyyj.home.major.model.HomeTableItemVhModel" />
+
+        <variable
+            name="listener"
+            type="top.wzmyyj.home.major.model.HomeTableItemVhModel.OnItemEventListener" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/pt_55"
+        android:gravity="center_horizontal"
+        android:onClick="@{()->listener.onTableItemClick(item)}"
+        android:orientation="vertical"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            binding_src_error="@{@drawable/home_table_item_icon}"
+            binding_src_placeholder="@{@color/colorEEEEEE}"
+            binding_src_url="@{item.imageUrl}"
+            android:layout_width="@dimen/pt_30"
+            android:layout_height="@dimen/pt_30"
+            android:layout_marginTop="@dimen/pt_3"
+            android:padding="@dimen/pt_2"
+            android:src="@drawable/home_table_item_icon"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pt_2"
+            android:text="@{item.title}"
+            android:textColor="@color/color777777"
+            android:textSize="@dimen/pt_11"
+            tools:text="@string/home_app_name" />
+
+    </LinearLayout>
+
+</layout>

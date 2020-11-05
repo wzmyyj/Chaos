@@ -5,8 +5,10 @@ import com.scwang.smartrefresh.layout.api.RefreshLayout
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener
 import top.wzmyyj.common.base.CBaseFragment
 import top.wzmyyj.common.utils.getViewModel
+import top.wzmyyj.common.utils.toast
 import top.wzmyyj.home.databinding.HomeFragmentBinding
 import top.wzmyyj.home.major.model.HomeBannerVhModel
+import top.wzmyyj.home.major.model.HomeTableItemVhModel
 import top.wzmyyj.home.major.ui.adapter.HomeAdapter
 import top.wzmyyj.home.major.vm.HomeViewModel
 
@@ -25,7 +27,7 @@ class HomeFragment : CBaseFragment() {
 
     interface OnEventListener : OnRefreshListener {
         /**
-         * Search view clicked.
+         * 点击搜索。
          */
         fun onSearchClick()
     }
@@ -39,7 +41,7 @@ class HomeFragment : CBaseFragment() {
     override fun rootView(): View? = binding.root
 
     override fun initData() {
-
+        vm.init()
     }
 
     override fun initView() {
@@ -47,11 +49,6 @@ class HomeFragment : CBaseFragment() {
         binding.vm = vm
         binding.listener = eventListener
         binding.rv.adapter = rvAdapter
-        rvAdapter.setList(
-            listOf(
-                HomeBannerVhModel()
-            )
-        )
     }
 
     override fun subscribeUI() {
@@ -71,10 +68,13 @@ class HomeFragment : CBaseFragment() {
         }
 
         override fun onBannerClick(item: HomeBannerVhModel, position: Int) {
-            TODO("Not yet implemented")
+            toast(item.titleList.getOrNull(position))
+        }
+
+        override fun onTableItemClick(item: HomeTableItemVhModel) {
+            toast(item.title)
         }
 
     }
-
 
 }

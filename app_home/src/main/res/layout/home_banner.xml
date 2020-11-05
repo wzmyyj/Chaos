@@ -28,8 +28,8 @@
         app:indicator_height="@dimen/pt_9"
         app:indicator_margin="@dimen/pt_3"
         app:indicator_width="@dimen/pt_9"
-        app:scroll_time="2000"
-        app:title_background="@color/colorAhp_White_5"
+        app:scroll_time="200"
+        app:title_background="@color/colorAhp_Black_5"
         app:title_height="@dimen/pt_25"
         app:title_textcolor="@color/colorWhite"
         app:title_textsize="@dimen/pt_12" />

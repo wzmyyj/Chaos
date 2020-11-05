@@ -14,14 +14,9 @@ import com.youth.banner.listener.OnBannerListener
  * @since 1.0.0
  * @see Banner
  */
-@BindingAdapter(value = ["binding_banner_titles"], requireAll = true)
-fun Banner.bindingBannerTitles(titles: List<String>?) {
-    setBannerTitles(titles.orEmpty())
-}
-
-@BindingAdapter(value = ["binding_banner_images"], requireAll = true)
-fun Banner.bindingBannerImages(images: List<*>?) {
-    setImages(images.orEmpty())
+@BindingAdapter(value = ["binding_banner_images", "binding_banner_titles"], requireAll = true)
+fun Banner.bindingBannerData(images: List<*>?, titles: List<String>?) {
+    update(images.orEmpty(), titles.orEmpty())
 }
 
 @BindingAdapter(value = ["binding_banner_clickListener"], requireAll = true)

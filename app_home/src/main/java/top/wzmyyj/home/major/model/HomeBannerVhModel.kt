@@ -18,7 +18,7 @@ class HomeBannerVhModel : IHomeVhModelType {
 
     interface OnItemEventListener {
         /**
-         * Banner image clicked.
+         * 点击Banner的图片。
          */
         fun onBannerClick(item: HomeBannerVhModel, position: Int)
     }
