@@ -15,6 +15,7 @@ class HomeBannerVhModel : IHomeVhModelType {
 
     val imageList = ArrayList<String>()
     val titleList = ArrayList<String>()
+    val routeList = ArrayList<String>()
 
     interface OnItemEventListener {
         /**

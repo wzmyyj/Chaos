@@ -24,6 +24,9 @@ class HomeViewModel(app: Application) : CBaseViewModel(app) {
             listOf(
                 getHomeBanner(),
                 getHomeTable(),
+
+                getColumn(0),
+
                 getColumn(1),
                 getColumn(2),
                 getColumn(3),
@@ -38,6 +41,7 @@ class HomeViewModel(app: Application) : CBaseViewModel(app) {
         for (i in 0..5) {
             imageList.add("https://upload-images.jianshu.io/upload_images/3262738-0a5b030907019fd8.jpg")
             titleList.add("图片$i")
+            routeList.add("路由:$i")
         }
     }
 
@@ -52,14 +56,14 @@ class HomeViewModel(app: Application) : CBaseViewModel(app) {
 
     private fun getColumn(p: Int) = HomeColumnVhModel().apply {
         title = "大标题$p"
-        route = "route:$p"
+        route = "路由:$p"
         for (i in 0..9) {
             itemList.add(HomeColumnItemVhModel().apply {
                 title = "标题$i"
                 desc = "这是一条描述！"
                 imageUrl =
                     "https://upload-images.jianshu.io/upload_images/3262738-48ae02c873fb4c85.jpg"
-                route = "route:$p:$i"
+                route = "路由:$p-$i"
             })
         }
     }
