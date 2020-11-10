@@ -33,8 +33,9 @@ class FeAdapterHelper<M : IVhModelType>(private val adapter: IFeAdapter<M>) {
     /**
      * Called when RecyclerView stops observing this Adapter.
      */
-    fun onDetachedFromRecyclerView() {
+    fun onDetachedFromRecyclerView(recyclerView: RecyclerView) {
         ivdManager.clear()
+        recyclerView.adapter = null// fei hua!
     }
 
     /**

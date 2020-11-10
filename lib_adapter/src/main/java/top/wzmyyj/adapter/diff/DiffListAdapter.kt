@@ -30,12 +30,12 @@ abstract class DiffListAdapter<M : IDiffVhModelType>(callback: DiffCallBack<M>) 
 
     override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
         super.onAttachedToRecyclerView(recyclerView)
-        helper.onAttachedToRecyclerView()
+        helper.onAttachedToRecyclerView(recyclerView)
     }
 
     override fun onDetachedFromRecyclerView(recyclerView: RecyclerView) {
         super.onDetachedFromRecyclerView(recyclerView)
-        helper.onDetachedFromRecyclerView()
+        helper.onDetachedFromRecyclerView(recyclerView)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BindingViewHolder {
