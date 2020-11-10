@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import top.wzmyyj.adapter.core.ISpanSize.Companion.SPAN_SIZE_FULL
+import top.wzmyyj.adapter.core.ISpanSize.Companion.SPAN_SIZE_SINGLE
 
 /**
  * Created on 2020/10/22.
@@ -98,7 +99,6 @@ class FeAdapterHelper<M : IVhModelType>(private val adapter: IFeAdapter<M>) {
     private fun fixSpanSize(recyclerView: RecyclerView) {
         val layoutManager = recyclerView.layoutManager
         if (layoutManager is GridLayoutManager) {
-            val spanSizeLookup = layoutManager.spanSizeLookup
             layoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
                 override fun getSpanSize(position: Int): Int {
                     val item = adapter.getItem(position)
@@ -106,7 +106,7 @@ class FeAdapterHelper<M : IVhModelType>(private val adapter: IFeAdapter<M>) {
                         val spanSize = item.getSpanSize()
                         return if (spanSize == SPAN_SIZE_FULL) layoutManager.spanCount else spanSize
                     }
-                    return spanSizeLookup.getSpanSize(position)
+                    return SPAN_SIZE_SINGLE
                 }
             }
         }
