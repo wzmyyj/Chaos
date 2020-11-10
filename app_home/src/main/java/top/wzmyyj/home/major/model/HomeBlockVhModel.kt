@@ -11,21 +11,21 @@ import top.wzmyyj.home.R
  * @version 1.0.0
  * @since 1.0.0
  */
-class HomeColumnVhModel : IHomeVhModelType {
+class HomeBlockVhModel : IHomeVhModelType {
 
-    override fun getViewType(): Int = R.layout.home_column
+    override fun getViewType(): Int = R.layout.home_block
 
     var title: String = ""
     var route: String = ""
-    val itemList = ArrayList<IHomeColumnVhModelType>()
+    val itemList = ArrayList<IHomeBlockVhModelType>()
 
     @ColorInt
     var titleColor: Int = Color.BLACK
 
     interface OnItemEventListener {
         /**
-         * 点击栏目更多。
+         * 点击模块更多。
          */
-        fun onColumnMoreClick(item: HomeColumnVhModel)
+        fun onBlockMoreClick(item: HomeBlockVhModel)
     }
 }

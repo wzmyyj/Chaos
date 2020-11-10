@@ -3,6 +3,8 @@ package top.wzmyyj.home.major.vm
 import android.app.Application
 import androidx.lifecycle.MediatorLiveData
 import top.wzmyyj.common.base.CBaseViewModel
+import top.wzmyyj.common.utils.color
+import top.wzmyyj.home.R
 import top.wzmyyj.home.major.model.*
 
 /**
@@ -24,9 +26,9 @@ class HomeViewModel(app: Application) : CBaseViewModel(app) {
             listOf(
                 getHomeBanner(),
                 getHomeTable(),
-
+                getBlock(0),
                 getColumn(0),
-
+                getBlock(1),
                 getColumn(1),
                 getColumn(2),
                 getColumn(3),
@@ -39,7 +41,7 @@ class HomeViewModel(app: Application) : CBaseViewModel(app) {
 
     private fun getHomeBanner() = HomeBannerVhModel().apply {
         for (i in 0..5) {
-            imageList.add("https://upload-images.jianshu.io/upload_images/3262738-0a5b030907019fd8.jpg")
+            imageList.add("https://upload-images.jianshu.io/upload_images/3262738-1f1bcd714aa0813c.jpg")
             titleList.add("图片$i")
             routeList.add("路由:$i")
         }
@@ -55,14 +57,31 @@ class HomeViewModel(app: Application) : CBaseViewModel(app) {
     }
 
     private fun getColumn(p: Int) = HomeColumnVhModel().apply {
-        title = "大标题$p"
+        title = "栏目标题$p"
+        titleColor = R.color.color555555.color()
         route = "路由:$p"
         for (i in 0..9) {
             itemList.add(HomeColumnItemVhModel().apply {
                 title = "标题$i"
                 desc = "这是一条描述！"
                 imageUrl =
-                    "https://upload-images.jianshu.io/upload_images/3262738-48ae02c873fb4c85.jpg"
+                    "https://upload-images.jianshu.io/upload_images/3262738-d76ead23b82d23da.jpg"
+                route = "路由:$p-$i"
+            })
+        }
+    }
+
+    private fun getBlock(p: Int) = HomeBlockVhModel().apply {
+        title = "模块标题$p"
+        titleColor = if (p < 1) R.color.colorOrange.color() else R.color.colorBlue.color()
+        route = "路由:$p"
+        fun getItem(i: Int) = if (i < 2) HomeBlockItem1VhModel() else HomeBlockItem2VhModel()
+        for (i in 0..7) {
+            itemList.add(getItem(i).apply {
+                title = "标题$i"
+                desc = "这是一条描述！"
+                imageUrl =
+                    "https://upload-images.jianshu.io/upload_images/3262738-d6311ba287710bd6.jpg"
                 route = "路由:$p-$i"
             })
         }

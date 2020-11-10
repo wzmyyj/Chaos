@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -34,10 +35,11 @@
                 android:layout_marginTop="@dimen/pt_5"
                 android:layout_weight="1"
                 android:text="@{item.title}"
-                android:textColor="@color/color555555"
+                android:textColor="@{item.titleColor}"
                 android:textSize="@dimen/pt_15"
-                android:textStyle="bold" />
-
+                android:textStyle="bold"
+                tools:text="标题"
+                tools:textColor="@color/color555555" />
 
             <Button
                 android:layout_width="@dimen/pt_40"
@@ -62,9 +64,7 @@
             android:orientation="horizontal"
             android:paddingStart="@dimen/pt_10"
             android:paddingEnd="@dimen/pt_10"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
-
-        </androidx.recyclerview.widget.RecyclerView>
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
         <View
             android:layout_width="match_parent"

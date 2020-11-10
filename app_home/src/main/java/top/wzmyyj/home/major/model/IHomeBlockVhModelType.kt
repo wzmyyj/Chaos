@@ -1,5 +1,6 @@
 package top.wzmyyj.home.major.model
 
+import top.wzmyyj.adapter.core.ISpanSize
 import top.wzmyyj.adapter.core.IVhModelType
 
 /**
@@ -9,4 +10,4 @@ import top.wzmyyj.adapter.core.IVhModelType
  * @version 1.0.0
  * @since 1.0.0
  */
-interface IHomeColumnVhModelType : IVhModelType
+interface IHomeBlockVhModelType : IVhModelType, ISpanSize

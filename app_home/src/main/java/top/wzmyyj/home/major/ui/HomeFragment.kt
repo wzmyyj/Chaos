@@ -7,10 +7,7 @@ import top.wzmyyj.common.base.CBaseFragment
 import top.wzmyyj.common.utils.getViewModel
 import top.wzmyyj.common.utils.toast
 import top.wzmyyj.home.databinding.HomeFragmentBinding
-import top.wzmyyj.home.major.model.HomeBannerVhModel
-import top.wzmyyj.home.major.model.HomeColumnItemVhModel
-import top.wzmyyj.home.major.model.HomeColumnVhModel
-import top.wzmyyj.home.major.model.HomeTableItemVhModel
+import top.wzmyyj.home.major.model.*
 import top.wzmyyj.home.major.ui.adapter.HomeAdapter
 import top.wzmyyj.home.major.vm.HomeViewModel
 
@@ -74,6 +71,14 @@ class HomeFragment : CBaseFragment() {
         }
 
         override fun onTableItemClick(item: HomeTableItemVhModel) {
+            toast(item.route)
+        }
+
+        override fun onBlockMoreClick(item: HomeBlockVhModel) {
+            toast(item.route)
+        }
+
+        override fun onBlockItemClick(item: HomeBlockItemVhModel) {
             toast(item.route)
         }
 

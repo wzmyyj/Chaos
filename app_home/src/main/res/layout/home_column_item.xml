@@ -29,6 +29,7 @@
             android:layout_height="@dimen/pt_128"
             android:background="@color/colorEEEEEE"
             android:padding="@dimen/dp_0_5"
+            android:scaleType="centerCrop"
             tools:ignore="ContentDescription"
             tools:src="@drawable/common_image_error" />
 
