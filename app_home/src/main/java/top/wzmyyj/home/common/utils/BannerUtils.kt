@@ -36,10 +36,10 @@ fun Banner.defaultConfig() {
 class BannerImageLoader : ImageLoader() {
 
     override fun displayImage(context: Context?, path: Any?, imageView: ImageView?) {
-        Glide.with(context!!)
+        Glide.with(imageView!!)
             .load(path as String?)
             .placeholder(R.color.colorEEEEEE)
             .apply(RequestOptions().fitCenter().error(R.color.colorEEEEEE))
-            .into(imageView!!)
+            .into(imageView)
     }
 }

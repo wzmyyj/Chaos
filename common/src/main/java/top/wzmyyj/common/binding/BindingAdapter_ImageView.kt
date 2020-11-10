@@ -4,6 +4,8 @@ import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import java.io.File
 
 /**
@@ -21,7 +23,11 @@ import java.io.File
     requireAll = false
 )
 fun ImageView.bindingImageUrl(url: String?, placeholder: Drawable?, error: Drawable?) {
-    //todo
+    Glide.with(this)
+        .load(url)
+        .placeholder(placeholder)
+        .apply(RequestOptions().fitCenter().error(error))
+        .into(this)
 }
 
 @BindingAdapter("binding_src_url_circle")
@@ -57,7 +63,7 @@ fun ImageView.bindingImageDrawable(drawable: Drawable) {
 
 @BindingAdapter("binding_src_load_drawable")
 fun ImageView.bindingLoadImageDrawable(drawable: Drawable) {
-   //todo
+    //todo
 }
 
 

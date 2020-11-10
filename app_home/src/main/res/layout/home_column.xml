@@ -1,6 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-</LinearLayout>
+    <data>
+
+        <variable
+            name="item"
+            type="top.wzmyyj.home.major.model.HomeColumnVhModel" />
+
+        <variable
+            name="listener"
+            type="top.wzmyyj.home.major.model.HomeColumnVhModel.OnItemEventListener" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/pt_37"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pt_5"
+                android:layout_weight="1"
+                android:text="@{item.title}"
+                android:textColor="@color/color555555"
+                android:textSize="@dimen/pt_15"
+                android:textStyle="bold" />
+
+
+            <Button
+                android:layout_width="@dimen/pt_40"
+                android:layout_height="match_parent"
+                android:background="@drawable/common_bg_click_clarity"
+                android:gravity="center"
+                android:onClick="@{()->listener.onColumnMoreClick(item)}"
+                android:paddingStart="@dimen/pt_10"
+                android:paddingTop="@dimen/pt_5"
+                android:text="@string/home_more"
+                android:textColor="@color/colorBBBBBB"
+                android:textSize="@dimen/pt_12" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_list"
+            binding_rv_dataList="@{item.itemList}"
+            binding_rv_noAnim="@{true}"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/pt_180"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/pt_10"
+            android:paddingEnd="@dimen/pt_10"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0_1"
+            android:background="@color/colorLine" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/pt_12"
+            android:background="@color/colorDivider" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0_1"
+            android:background="@color/colorLine" />
+
+    </LinearLayout>
+
+</layout>

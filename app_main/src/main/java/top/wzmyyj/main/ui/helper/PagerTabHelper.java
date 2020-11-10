@@ -46,7 +46,7 @@ public class PagerTabHelper {
     @NonNull
     public View getView(@NonNull LayoutInflater inflater,
                         @NonNull FragmentManager fragmentManager, @Nullable ViewGroup parent) {
-        View v = inflater.inflate(R.layout.main_tab_pager, parent, false);
+        View v = inflater.inflate(R.layout.main_pager_wrapper, parent, false);
         mViewPager = v.findViewById(R.id.viewPager);
         mTabLayout = v.findViewById(R.id.tabLayout);
         if (manager.toList().size() == 0) {

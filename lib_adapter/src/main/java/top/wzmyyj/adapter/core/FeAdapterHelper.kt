@@ -1,6 +1,10 @@
 package top.wzmyyj.adapter.core
 
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import top.wzmyyj.adapter.core.ISpanSize.Companion.SPAN_SIZE_FULL
 
 /**
  * Created on 2020/10/22.
@@ -20,8 +24,9 @@ class FeAdapterHelper<M : IVhModelType>(private val adapter: IFeAdapter<M>) {
     /**
      * Called when RecyclerView starts observing this Adapter.
      */
-    fun onAttachedToRecyclerView() {
+    fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
         adapter.initManager(ivdManager)
+        fixSpanSize(recyclerView)
     }
 
     /**
@@ -46,6 +51,7 @@ class FeAdapterHelper<M : IVhModelType>(private val adapter: IFeAdapter<M>) {
      */
     fun onBindViewHolder(holder: BindingViewHolder, position: Int) {
         val item = adapter.getItem(position) ?: return
+        setFullSpan(holder, item)
         adapter.onBindVHForAll(holder.binding, item)
         ivdManager.onBindVH(holder.binding, item)
         holder.binding.executePendingBindings()
@@ -81,6 +87,40 @@ class FeAdapterHelper<M : IVhModelType>(private val adapter: IFeAdapter<M>) {
             model.asList().forEach { findLeaf(it as M, list) }
         } else {
             list.add(model)
+        }
+    }
+
+    /**
+     * Fix span size when recyclerView's layoutManager is GridLayoutManager.
+     *
+     * @see GridLayoutManager
+     */
+    private fun fixSpanSize(recyclerView: RecyclerView) {
+        val layoutManager = recyclerView.layoutManager
+        if (layoutManager is GridLayoutManager) {
+            val spanSizeLookup = layoutManager.spanSizeLookup
+            layoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+                override fun getSpanSize(position: Int): Int {
+                    val item = adapter.getItem(position)
+                    if (item is ISpanSize) {
+                        val spanSize = item.getSpanSize()
+                        return if (spanSize == SPAN_SIZE_FULL) layoutManager.spanCount else spanSize
+                    }
+                    return spanSizeLookup.getSpanSize(position)
+                }
+            }
+        }
+    }
+
+    /**
+     * Set full span when recyclerView's layoutManager is StaggeredGridLayoutManager.
+     *
+     * @see StaggeredGridLayoutManager
+     */
+    private fun setFullSpan(holder: RecyclerView.ViewHolder, item: M) {
+        val lp = holder.itemView.layoutParams ?: return
+        if (lp is StaggeredGridLayoutManager.LayoutParams) {
+            lp.isFullSpan = item is ISpanSize && item.getSpanSize() == SPAN_SIZE_FULL
         }
     }
 

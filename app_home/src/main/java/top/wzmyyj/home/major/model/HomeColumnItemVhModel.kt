@@ -3,17 +3,18 @@ package top.wzmyyj.home.major.model
 import top.wzmyyj.home.R
 
 /**
- * Created on 2020/10/23.
+ * Created on 2020/11/09.
  *
  * @author feling
  * @version 1.0.0
  * @since 1.0.0
  */
-class HomeTableItemVhModel : IHomeTableVhModelType {
+class HomeColumnItemVhModel : IHomeColumnVhModelType {
 
-    override fun getViewType(): Int = R.layout.home_table_item
+    override fun getViewType(): Int = R.layout.home_column_item
 
     var title: String = ""
+    var desc: String = ""
     var imageUrl: String = ""
     var route: String = ""
 
@@ -21,7 +22,6 @@ class HomeTableItemVhModel : IHomeTableVhModelType {
         /**
          * 点击item。
          */
-        fun onTableItemClick(item: HomeTableItemVhModel)
+        fun onColumnItemClick(item: HomeColumnItemVhModel)
     }
-
 }
