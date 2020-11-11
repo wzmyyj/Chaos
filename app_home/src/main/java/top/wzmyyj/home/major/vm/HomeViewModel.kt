@@ -26,15 +26,20 @@ class HomeViewModel(app: Application) : CBaseViewModel(app) {
             listOf(
                 getHomeBanner(),
                 getHomeTable(),
-                getBlock(0),
+                getBlock(0, 5),
                 getColumn(0),
-                getBlock(1),
+                getBlock(1, 4),
                 getColumn(1),
+                getBlock(2, 6),
                 getColumn(2),
+                getBlock(3, 3),
                 getColumn(3),
+                getBlock(4, 7),
                 getColumn(4),
+                getBlock(5, 8),
                 getColumn(5),
-                getColumn(6),
+                getBlock(6, 4),
+                getColumn(6)
             )
         )
     }
@@ -71,19 +76,70 @@ class HomeViewModel(app: Application) : CBaseViewModel(app) {
         }
     }
 
-    private fun getBlock(p: Int) = HomeBlockVhModel().apply {
+    private fun getBlock(p: Int, size: Int) = HomeBlockVhModel().apply {
         title = "模块标题$p"
         titleColor = if (p < 1) R.color.colorOrange.color() else R.color.colorBlue.color()
         route = "路由:$p"
-        fun getItem(i: Int) = if (i < 2) HomeBlockItem1VhModel() else HomeBlockItem2VhModel()
-        for (i in 0..7) {
-            itemList.add(getItem(i).apply {
-                title = "标题$i"
-                desc = "这是一条描述！"
-                imageUrl =
-                    "https://upload-images.jianshu.io/upload_images/3262738-d6311ba287710bd6.jpg"
-                route = "路由:$p-$i"
-            })
+        fun HomeBlockItemVhModel.init(i: Int): HomeBlockItemVhModel {
+            title = "标题$i"
+            desc = "这是一条描述！"
+            imageUrl =
+                "https://upload-images.jianshu.io/upload_images/3262738-d6311ba287710bd6.jpg"
+            route = "路由:$p-$i"
+            return this
+        }
+        when (size) {
+            3 -> {
+                itemList.add(HomeBlockItem1VhModel().init(0))
+                itemList.add(HomeBlockItem2VhModel().init(1))
+                itemList.add(HomeBlockItem2VhModel().init(2))
+                rvHeightPt = 200 + 125
+            }
+            4 -> {
+                itemList.add(HomeBlockItem1VhModel().init(0))
+                itemList.add(HomeBlockItem3VhModel().init(1))
+                itemList.add(HomeBlockItem3VhModel().init(2))
+                itemList.add(HomeBlockItem3VhModel().init(3))
+                rvHeightPt = 200 + 165
+            }
+            5 -> {
+                itemList.add(HomeBlockItem2VhModel().init(0))
+                itemList.add(HomeBlockItem2VhModel().init(1))
+                itemList.add(HomeBlockItem3VhModel().init(2))
+                itemList.add(HomeBlockItem3VhModel().init(3))
+                itemList.add(HomeBlockItem3VhModel().init(4))
+                rvHeightPt = 125 + 165
+            }
+            6 -> {
+                itemList.add(HomeBlockItem1VhModel().init(0))
+                itemList.add(HomeBlockItem2VhModel().init(1))
+                itemList.add(HomeBlockItem2VhModel().init(2))
+                itemList.add(HomeBlockItem3VhModel().init(3))
+                itemList.add(HomeBlockItem3VhModel().init(4))
+                itemList.add(HomeBlockItem3VhModel().init(5))
+                rvHeightPt = 200 + 125 + 165
+            }
+            7 -> {
+                itemList.add(HomeBlockItem1VhModel().init(0))
+                itemList.add(HomeBlockItem3VhModel().init(1))
+                itemList.add(HomeBlockItem3VhModel().init(2))
+                itemList.add(HomeBlockItem3VhModel().init(3))
+                itemList.add(HomeBlockItem3VhModel().init(4))
+                itemList.add(HomeBlockItem3VhModel().init(5))
+                itemList.add(HomeBlockItem3VhModel().init(6))
+                rvHeightPt = 200 + 165 + 165
+            }
+            8 -> {
+                itemList.add(HomeBlockItem2VhModel().init(0))
+                itemList.add(HomeBlockItem2VhModel().init(1))
+                itemList.add(HomeBlockItem3VhModel().init(2))
+                itemList.add(HomeBlockItem3VhModel().init(3))
+                itemList.add(HomeBlockItem3VhModel().init(4))
+                itemList.add(HomeBlockItem3VhModel().init(5))
+                itemList.add(HomeBlockItem3VhModel().init(6))
+                itemList.add(HomeBlockItem3VhModel().init(7))
+                rvHeightPt = 125 + 165 + 165
+            }
         }
     }
 }

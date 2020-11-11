@@ -3,6 +3,7 @@ package top.wzmyyj.common.app
 import android.app.Application
 import android.content.res.Resources
 import top.wzmyyj.common.BuildConfig
+import top.wzmyyj.common.helper.ChoreographerHelper
 import top.wzmyyj.common.weight.SmartRefreshHelper
 import top.wzmyyj.utils.display.AdaptScreenUtil
 import top.wzmyyj.utils.tools.LogUtil
@@ -29,6 +30,7 @@ open class FeApp : Application() {
         ToastUtil.init(this)
         LogUtil.init("feling", BuildConfig.DEBUG)
         SmartRefreshHelper.init()
+        ChoreographerHelper.start()
     }
 
     override fun getResources(): Resources {

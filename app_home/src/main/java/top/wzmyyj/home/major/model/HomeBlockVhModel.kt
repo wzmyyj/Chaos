@@ -19,6 +19,9 @@ class HomeBlockVhModel : IHomeVhModelType {
     var route: String = ""
     val itemList = ArrayList<IHomeBlockVhModelType>()
 
+    // 列表高度
+    var rvHeightPt: Int = 0
+
     @ColorInt
     var titleColor: Int = Color.BLACK
 

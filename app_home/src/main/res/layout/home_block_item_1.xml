@@ -16,17 +16,17 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/pt_125"
+        android:layout_height="@dimen/pt_200"
         android:orientation="vertical"
         android:padding="@dimen/pt_5"
-        tools:layout_width="@dimen/pt_177">
+        tools:layout_width="@dimen/pt_355">
 
         <ImageView
             binding_src_error="@{@drawable/common_image_error}"
             binding_src_placeholder="@{@color/colorEEEEEE}"
             binding_src_url="@{item.imageUrl}"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/pt_80"
+            android:layout_height="@dimen/pt_155"
             android:background="@color/colorEEEEEE"
             android:padding="@dimen/dp_0_5"
             android:scaleType="centerCrop"

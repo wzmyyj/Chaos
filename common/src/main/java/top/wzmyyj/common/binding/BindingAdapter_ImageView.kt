@@ -30,11 +30,6 @@ fun ImageView.bindingImageUrl(url: String?, placeholder: Drawable?, error: Drawa
         .into(this)
 }
 
-@BindingAdapter("binding_src_url_circle")
-fun ImageView.bindingCircleImageUrl(url: String?) {
-    //todo
-}
-
 @BindingAdapter("binding_src_file")
 fun ImageView.bindingFileToImage(file: File?) {
     if (file != null) {
@@ -59,11 +54,6 @@ fun ImageView.bindingImageResource(res: Int) {
 @BindingAdapter("binding_src_drawable")
 fun ImageView.bindingImageDrawable(drawable: Drawable) {
     this.setImageDrawable(drawable)
-}
-
-@BindingAdapter("binding_src_load_drawable")
-fun ImageView.bindingLoadImageDrawable(drawable: Drawable) {
-    //todo
 }
 
 
