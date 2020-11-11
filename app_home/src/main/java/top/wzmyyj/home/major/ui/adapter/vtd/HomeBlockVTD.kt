@@ -1,5 +1,6 @@
 package top.wzmyyj.home.major.ui.adapter.vtd
 
+import androidx.recyclerview.widget.RecyclerView
 import top.wzmyyj.adapter.core.ViewTypeDelegate
 import top.wzmyyj.home.R
 import top.wzmyyj.home.databinding.HomeBlockBinding
@@ -18,7 +19,12 @@ class HomeBlockVTD(private val listener: HomeBlockAdapter.OnAdapterEventListener
 
     override fun getViewType(): Int = R.layout.home_block
 
+    private val rvPool = RecyclerView.RecycledViewPool().apply {
+        setMaxRecycledViews(R.layout.home_column_item, 50)
+    }
+
     override fun onCreateVH(binding: HomeBlockBinding) {
+        binding.rvList.setRecycledViewPool(rvPool)
         binding.rvList.adapter = HomeBlockAdapter(listener)
     }
 

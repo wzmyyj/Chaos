@@ -28,6 +28,7 @@
             android:layout_width="@dimen/pt_96"
             android:layout_height="@dimen/pt_128"
             android:background="@color/colorEEEEEE"
+            android:cropToPadding="true"
             android:padding="@dimen/dp_0_5"
             android:scaleType="centerCrop"
             tools:ignore="ContentDescription"

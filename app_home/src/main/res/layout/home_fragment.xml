@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -17,6 +18,89 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <top.wzmyyj.weight.weight.FitView
+                android:id="@+id/fv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:alpha="0"
+                android:background="@color/colorWhite"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:alpha="1" />
+
+            <ImageView
+                android:layout_width="@dimen/pt_45"
+                android:layout_height="@dimen/pt_45"
+                android:layout_marginStart="@dimen/pt_10"
+                android:padding="@dimen/pt_7"
+                android:src="@drawable/home_black_oval_bg"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fv"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:layout_width="@dimen/pt_45"
+                android:layout_height="@dimen/pt_45"
+                android:layout_marginEnd="@dimen/pt_10"
+                android:padding="@dimen/pt_7"
+                android:src="@drawable/home_black_oval_bg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fv"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:layout_width="@dimen/pt_45"
+                android:layout_height="@dimen/pt_45"
+                android:layout_marginEnd="@dimen/pt_10"
+                android:padding="@dimen/pt_13"
+                android:src="@drawable/home_search_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fv"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/pt_45"
+                android:alpha="0"
+                android:background="@color/colorWhite"
+                android:gravity="center"
+                android:text="@string/home_recommend"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/pt_16"
+                app:layout_constraintTop_toBottomOf="@id/fv"
+                tools:alpha="1" />
+
+            <ImageView
+                android:id="@+id/iv_search"
+                android:layout_width="@dimen/pt_45"
+                android:layout_height="@dimen/pt_45"
+                android:layout_marginEnd="@dimen/pt_10"
+                android:alpha="0"
+                android:onClick="@{()->listener.onSearchClick()}"
+                android:padding="@dimen/pt_13"
+                android:src="@drawable/home_search_blue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fv"
+                tools:alpha="1"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:layout_width="@dimen/pt_45"
+                android:layout_height="@dimen/pt_45"
+                android:layout_marginStart="@dimen/pt_10"
+                android:padding="@dimen/pt_7"
+                android:src="@drawable/home_main_girl"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fv"
+                tools:ignore="ContentDescription" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.scwang.smartrefresh.layout.SmartRefreshLayout
             android:id="@+id/srl"

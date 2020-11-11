@@ -1,6 +1,7 @@
 package top.wzmyyj.home.major.ui
 
 import android.view.View
+import androidx.recyclerview.widget.RecyclerView
 import com.scwang.smartrefresh.layout.api.RefreshLayout
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener
 import top.wzmyyj.common.base.CBaseFragment
@@ -48,6 +49,8 @@ class HomeFragment : CBaseFragment() {
         binding.vm = vm
         binding.listener = eventListener
         binding.rv.adapter = rvAdapter
+//        binding.rv.setHasFixedSize(true)
+//        binding.rv.setItemViewCacheSize(20)
     }
 
     override fun subscribeUI() {
@@ -59,7 +62,7 @@ class HomeFragment : CBaseFragment() {
     private val eventListener = object : OnEventListener, HomeAdapter.OnAdapterEventListener {
 
         override fun onSearchClick() {
-            TODO("Not yet implemented")
+            toast("Search!")
         }
 
         override fun onRefresh(refreshLayout: RefreshLayout?) {

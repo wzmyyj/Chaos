@@ -2,4 +2,5 @@
 <resources>
     <string name="home_app_name">Home</string>
     <string name="home_more">更多</string>
+    <string name="home_recommend">推荐</string>
 </resources>
