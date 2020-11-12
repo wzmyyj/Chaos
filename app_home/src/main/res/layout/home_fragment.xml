@@ -17,95 +17,18 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <top.wzmyyj.weight.weight.FitView
-                android:id="@+id/fv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:alpha="0"
-                android:background="@color/colorWhite"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:alpha="1" />
-
-            <ImageView
-                android:layout_width="@dimen/pt_45"
-                android:layout_height="@dimen/pt_45"
-                android:layout_marginStart="@dimen/pt_10"
-                android:padding="@dimen/pt_7"
-                android:src="@drawable/home_black_oval_bg"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/fv"
-                tools:ignore="ContentDescription" />
-
-            <ImageView
-                android:layout_width="@dimen/pt_45"
-                android:layout_height="@dimen/pt_45"
-                android:layout_marginEnd="@dimen/pt_10"
-                android:padding="@dimen/pt_7"
-                android:src="@drawable/home_black_oval_bg"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/fv"
-                tools:ignore="ContentDescription" />
-
-            <ImageView
-                android:layout_width="@dimen/pt_45"
-                android:layout_height="@dimen/pt_45"
-                android:layout_marginEnd="@dimen/pt_10"
-                android:padding="@dimen/pt_13"
-                android:src="@drawable/home_search_gray"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/fv"
-                tools:ignore="ContentDescription" />
-
-            <TextView
-                android:id="@+id/tv_title"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/pt_45"
-                android:alpha="0"
-                android:background="@color/colorWhite"
-                android:gravity="center"
-                android:text="@string/home_recommend"
-                android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/pt_16"
-                app:layout_constraintTop_toBottomOf="@id/fv"
-                tools:alpha="1" />
-
-            <ImageView
-                android:id="@+id/iv_search"
-                android:layout_width="@dimen/pt_45"
-                android:layout_height="@dimen/pt_45"
-                android:layout_marginEnd="@dimen/pt_10"
-                android:alpha="0"
-                android:onClick="@{()->listener.onSearchClick()}"
-                android:padding="@dimen/pt_13"
-                android:src="@drawable/home_search_blue"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/fv"
-                tools:alpha="1"
-                tools:ignore="ContentDescription" />
-
-            <ImageView
-                android:layout_width="@dimen/pt_45"
-                android:layout_height="@dimen/pt_45"
-                android:layout_marginStart="@dimen/pt_10"
-                android:padding="@dimen/pt_7"
-                android:src="@drawable/home_main_girl"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/fv"
-                tools:ignore="ContentDescription" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
 
         <com.scwang.smartrefresh.layout.SmartRefreshLayout
             android:id="@+id/srl"
+            binding_srl_headerPrimaryColor="@{@color/colorFBFBFB}"
+            binding_srl_isFooterEmpty="@{true}"
+            binding_srl_isRefreshFinish="@{vm.refreshFinish}"
+            binding_srl_onRefreshListener="@{listener}"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            app:srlEnableLoadMore="false">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv"
@@ -114,9 +37,121 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
+                android:overScrollMode="never"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
         </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <top.wzmyyj.weight.weight.FitView
+                android:id="@+id/fv_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="@dimen/pt_45"
+                android:layout_height="@dimen/pt_45"
+                android:layout_marginStart="@dimen/pt_10"
+                android:padding="@dimen/pt_7"
+                android:src="@drawable/home_bg_black_oval"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fv_bar"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:layout_width="@dimen/pt_45"
+                android:layout_height="@dimen/pt_45"
+                android:layout_marginEnd="@dimen/pt_10"
+                android:padding="@dimen/pt_7"
+                android:src="@drawable/home_bg_black_oval"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fv_bar"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/iv_search_white"
+                android:layout_width="@dimen/pt_45"
+                android:layout_height="@dimen/pt_45"
+                android:layout_marginEnd="@dimen/pt_10"
+                android:padding="@dimen/pt_13"
+                android:src="@drawable/home_ic_search_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fv_bar"
+                tools:ignore="ContentDescription" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_bar"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/colorWhite"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@id/iv_search_white"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:alpha="1"
+                tools:visibility="visible">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/pt_45"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:text="@string/home_recommend"
+                    android:textColor="@color/colorTheme"
+                    android:textSize="@dimen/pt_16"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_0_1"
+                    android:background="@color/colorDDDDDD"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+                <ImageView
+                    android:layout_width="@dimen/pt_45"
+                    android:layout_height="@dimen/pt_45"
+                    android:layout_marginEnd="@dimen/pt_10"
+                    android:background="@drawable/common_bg_click_clarity"
+                    android:onClick="@{()->listener.onSearchClick()}"
+                    android:padding="@dimen/pt_13"
+                    android:src="@drawable/home_ic_search_blue"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="ContentDescription" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:layout_width="@dimen/pt_45"
+                android:layout_height="@dimen/pt_45"
+                android:layout_marginStart="@dimen/pt_10"
+                android:padding="@dimen/pt_7"
+                android:src="@drawable/home_ic_main_girl"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fv_bar"
+                tools:ignore="ContentDescription" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/iv_back_top"
+            android:layout_width="@dimen/pt_40"
+            android:layout_height="@dimen/pt_40"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="@dimen/pt_15"
+            android:layout_marginBottom="@dimen/pt_30"
+            android:src="@drawable/common_ic_back_top"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="ContentDescription"
+            tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -46,7 +46,8 @@ object ChoreographerHelper {
             } else {
                 val times = (frameTimeNanos - lastTime) / 1000000
                 val frames = (times / 16).toInt()
-                if (times > 16) {
+
+                if (times > 17) {
                     LogUtil.w(TAG, "UI线程超时(超过16ms):" + times + "ms" + " , 丢帧:" + frames)
                 }
                 frameTimeNanos

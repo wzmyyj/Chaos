@@ -30,16 +30,29 @@
             android:paddingRight="15dp">
 
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/pt_5"
-                android:layout_weight="1"
                 android:text="@{item.title}"
                 android:textColor="@{item.titleColor}"
                 android:textSize="@dimen/pt_15"
                 android:textStyle="bold"
                 tools:text="标题"
                 tools:textColor="@color/color555555" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/pt_8"
+                android:layout_marginTop="@dimen/pt_6"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:lines="1"
+                android:text="@{item.desc}"
+                android:textColor="@color/colorAAAAAA"
+                android:textSize="@dimen/pt_13"
+                tools:text="这是一条描述！" />
 
             <Button
                 android:layout_width="@dimen/pt_40"
@@ -61,7 +74,7 @@
             binding_rv_dataList="@{item.itemList}"
             binding_rv_noAnim="@{true}"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/pt_455"
+            android:layout_height="@dimen/pt_290"
             android:layout_marginBottom="5dp"
             android:orientation="vertical"
             android:paddingStart="@dimen/pt_10"

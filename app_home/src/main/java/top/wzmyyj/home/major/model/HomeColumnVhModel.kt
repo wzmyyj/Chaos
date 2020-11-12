@@ -16,6 +16,7 @@ class HomeColumnVhModel : IHomeVhModelType {
     override fun getViewType(): Int = R.layout.home_column
 
     var title: String = ""
+    var desc: String = ""
     var route: String = ""
     val itemList = ArrayList<IHomeColumnVhModelType>()
 

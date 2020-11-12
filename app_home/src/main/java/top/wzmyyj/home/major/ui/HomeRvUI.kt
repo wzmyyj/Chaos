@@ -3,7 +3,9 @@ package top.wzmyyj.home.major.ui
 import androidx.annotation.MainThread
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
+import androidx.recyclerview.widget.RecyclerView
 import top.wzmyyj.common.base.adapter.CBaseDiffAdapter
+import top.wzmyyj.common.utils.*
 import top.wzmyyj.home.databinding.HomeFragmentBinding
 import java.util.*
 
@@ -18,10 +20,8 @@ import java.util.*
 class HomeRvUI private constructor() : DefaultLifecycleObserver {
 
     companion object {
-        private const val MAX_SCROLL_Y: Float = 40F //pt
+        private const val MAX_SCROLL_Y: Float = 100F //pt
         private const val SHOW_BUTTON_SCROLL_Y: Float = 400F //pt
-        private const val HEADER_HEIGHT: Float = 154F //pt
-        private const val MAX_ALPHA: Float = 1F
 
         // 保证一对一的关系。
         private val map = WeakHashMap<LifecycleOwner, HomeRvUI>()
@@ -36,11 +36,38 @@ class HomeRvUI private constructor() : DefaultLifecycleObserver {
         fun get(owner: LifecycleOwner): HomeRvUI? = map[owner]
     }
 
+    // 记录滑动距离。
+    private var rvScrollY: Int = 0
+
     /**
      * 初始化UI。
      */
     fun init(binding: HomeFragmentBinding, rvAdapter: CBaseDiffAdapter<*>) {
-
+        binding.rv.adapter = rvAdapter
+        val maxScrollY = MAX_SCROLL_Y.pt2px()
+        val showButtonScrollY = SHOW_BUTTON_SCROLL_Y.pt2px()
+        binding.clBar.minAlpha()
+        binding.clBar.visible()
+        binding.rv.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(v: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(v, dx, dy)
+                rvScrollY += dy
+                if (rvScrollY < maxScrollY) {
+                    val alpha = rvScrollY.toFloat() / maxScrollY
+                    binding.clBar.alpha = alpha
+                } else {
+                    binding.clBar.maxAlpha()
+                }
+                if (rvScrollY < showButtonScrollY) {
+                    binding.ivBackTop.gone()
+                } else {
+                    binding.ivBackTop.visible()
+                }
+            }
+        })
+        binding.ivBackTop.setOnClickListener {
+            binding.rv.smoothScrollToPosition(0)
+        }
     }
 
 }

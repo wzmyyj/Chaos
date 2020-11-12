@@ -1,5 +1,6 @@
 package top.wzmyyj.home.major.ui.adapter.vtd
 
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import top.wzmyyj.adapter.core.ViewTypeDelegate
 import top.wzmyyj.home.R
@@ -20,11 +21,18 @@ class HomeBlockVTD(private val listener: HomeBlockAdapter.OnAdapterEventListener
     override fun getViewType(): Int = R.layout.home_block
 
     private val rvPool = RecyclerView.RecycledViewPool().apply {
-        setMaxRecycledViews(R.layout.home_column_item, 50)
+        setMaxRecycledViews(R.layout.home_block_item_1, 8)
+        setMaxRecycledViews(R.layout.home_block_item_2, 16)
+        setMaxRecycledViews(R.layout.home_block_item_3, 24)
     }
 
     override fun onCreateVH(binding: HomeBlockBinding) {
         binding.rvList.setRecycledViewPool(rvPool)
+        binding.rvList.setHasFixedSize(true)
+        binding.rvList.isNestedScrollingEnabled = false
+        binding.rvList.layoutManager = object : GridLayoutManager(binding.root.context, 6) {
+            override fun canScrollVertically(): Boolean = false
+        }
         binding.rvList.adapter = HomeBlockAdapter(listener)
     }
 

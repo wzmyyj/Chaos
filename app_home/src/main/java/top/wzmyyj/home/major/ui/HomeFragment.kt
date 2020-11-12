@@ -48,9 +48,7 @@ class HomeFragment : CBaseFragment() {
         binding.lifecycleOwner = viewLifecycleOwner
         binding.vm = vm
         binding.listener = eventListener
-        binding.rv.adapter = rvAdapter
-//        binding.rv.setHasFixedSize(true)
-//        binding.rv.setItemViewCacheSize(20)
+        HomeRvUI.with(viewLifecycleOwner).init(binding, rvAdapter)
     }
 
     override fun subscribeUI() {
@@ -66,7 +64,8 @@ class HomeFragment : CBaseFragment() {
         }
 
         override fun onRefresh(refreshLayout: RefreshLayout?) {
-            TODO("Not yet implemented")
+            vm.init()
+            toast("Refresh!")
         }
 
         override fun onBannerClick(item: HomeBannerVhModel, position: Int) {

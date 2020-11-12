@@ -16,6 +16,7 @@ class HomeBlockVhModel : IHomeVhModelType {
     override fun getViewType(): Int = R.layout.home_block
 
     var title: String = ""
+    var desc: String = ""
     var route: String = ""
     val itemList = ArrayList<IHomeBlockVhModelType>()
 

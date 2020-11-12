@@ -23,14 +23,14 @@
         tools:ignore="UseCompoundDrawables">
 
         <ImageView
-            binding_src_error="@{@drawable/home_table_item_icon}"
+            binding_src_error="@{@drawable/home_ic_table_item}"
             binding_src_placeholder="@{@color/colorEEEEEE}"
             binding_src_url="@{item.imageUrl}"
             android:layout_width="@dimen/pt_30"
             android:layout_height="@dimen/pt_30"
             android:layout_marginTop="@dimen/pt_3"
             android:padding="@dimen/pt_2"
-            android:src="@drawable/home_table_item_icon"
+            android:src="@drawable/home_ic_table_item"
             tools:ignore="ContentDescription" />
 
         <TextView

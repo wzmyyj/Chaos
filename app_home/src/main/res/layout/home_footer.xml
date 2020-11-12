@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="item"
+            type="top.wzmyyj.home.major.model.HomeFooterVhModel" />
+
+    </data>
+
+    <TextView
+        android:id="@+id/tv_end"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/pt_65"
+        android:background="@color/colorWhite"
+        android:gravity="center"
+        android:text="@string/home_end"
+        android:textColor="@color/colorBBBBBB"
+        android:textSize="@dimen/pt_13" />
+
+</layout>
