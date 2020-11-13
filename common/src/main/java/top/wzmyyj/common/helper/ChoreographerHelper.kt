@@ -3,7 +3,6 @@ package top.wzmyyj.common.helper
 import android.view.Choreographer
 import top.wzmyyj.utils.tools.LogUtil
 
-
 /**
  * Created on 2020/11/11.
  *

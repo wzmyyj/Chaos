@@ -69,7 +69,7 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_list"
+            android:id="@+id/rv"
             binding_rv_dataList="@{item.itemList}"
             binding_rv_noAnim="@{true}"
             android:layout_width="match_parent"

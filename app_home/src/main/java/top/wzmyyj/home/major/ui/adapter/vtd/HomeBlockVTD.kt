@@ -27,13 +27,13 @@ class HomeBlockVTD(private val listener: HomeBlockAdapter.OnAdapterEventListener
     }
 
     override fun onCreateVH(binding: HomeBlockBinding) {
-        binding.rvList.setRecycledViewPool(rvPool)
-        binding.rvList.setHasFixedSize(true)
-        binding.rvList.isNestedScrollingEnabled = false
-        binding.rvList.layoutManager = object : GridLayoutManager(binding.root.context, 6) {
+        binding.rv.setRecycledViewPool(rvPool)
+        binding.rv.setHasFixedSize(true)
+        binding.rv.isNestedScrollingEnabled = false
+        binding.rv.layoutManager = object : GridLayoutManager(binding.root.context, 6) {
             override fun canScrollVertically(): Boolean = false
         }
-        binding.rvList.adapter = HomeBlockAdapter(listener)
+        binding.rv.adapter = HomeBlockAdapter(listener)
     }
 
     override fun onBindVH(binding: HomeBlockBinding, m: HomeBlockVhModel) {}

@@ -26,9 +26,9 @@ class HomeColumnVTD(private val listener: HomeColumnAdapter.OnAdapterEventListen
 
     override fun onCreateVH(binding: HomeColumnBinding) {
         // 预加载4个。
-        (binding.rvList.layoutManager as LinearLayoutManager).initialPrefetchItemCount = 4
-        binding.rvList.setRecycledViewPool(rvPool)
-        binding.rvList.adapter = HomeColumnAdapter(listener)
+        (binding.rv.layoutManager as LinearLayoutManager).initialPrefetchItemCount = 4
+        binding.rv.setRecycledViewPool(rvPool)
+        binding.rv.adapter = HomeColumnAdapter(listener)
     }
 
     override fun onBindVH(binding: HomeColumnBinding, m: HomeColumnVhModel) {}

@@ -35,11 +35,11 @@ class HomeViewModel(app: Application) : CBaseViewModel(app) {
                 getColumn(0),
                 getBlock(1, 4),
                 getColumn(1),
-                getBlock(2, 7),
+                getBlock(2, 6),
                 getColumn(2),
                 getBlock(3, 3),
                 getColumn(3),
-                getBlock(4, 6),
+                getBlock(4, 7),
                 getColumn(4),
                 getBlock(5, 8),
                 getColumn(5),
@@ -102,12 +102,18 @@ class HomeViewModel(app: Application) : CBaseViewModel(app) {
             return this
         }
         when (size) {
+            2 -> {
+                itemList.add(HomeBlockItem2VhModel().init(0))
+                itemList.add(HomeBlockItem2VhModel().init(1))
+                titleColor = R.color.colorOrange.color()
+                rvHeightPt = 145
+            }
             3 -> {
                 itemList.add(HomeBlockItem1VhModel().init(0))
                 itemList.add(HomeBlockItem2VhModel().init(1))
                 itemList.add(HomeBlockItem2VhModel().init(2))
                 titleColor = R.color.colorBlue.color()
-                rvHeightPt = 200 + 125
+                rvHeightPt = 215 + 145
             }
             4 -> {
                 itemList.add(HomeBlockItem1VhModel().init(0))
@@ -115,7 +121,7 @@ class HomeViewModel(app: Application) : CBaseViewModel(app) {
                 itemList.add(HomeBlockItem3VhModel().init(2))
                 itemList.add(HomeBlockItem3VhModel().init(3))
                 titleColor = R.color.colorSky.color()
-                rvHeightPt = 200 + 165
+                rvHeightPt = 215 + 165
             }
             5 -> {
                 itemList.add(HomeBlockItem2VhModel().init(0))
@@ -124,7 +130,7 @@ class HomeViewModel(app: Application) : CBaseViewModel(app) {
                 itemList.add(HomeBlockItem3VhModel().init(3))
                 itemList.add(HomeBlockItem3VhModel().init(4))
                 titleColor = R.color.colorOrange.color()
-                rvHeightPt = 125 + 165
+                rvHeightPt = 145 + 165
             }
             6 -> {
                 itemList.add(HomeBlockItem1VhModel().init(0))
@@ -134,7 +140,7 @@ class HomeViewModel(app: Application) : CBaseViewModel(app) {
                 itemList.add(HomeBlockItem3VhModel().init(4))
                 itemList.add(HomeBlockItem3VhModel().init(5))
                 titleColor = R.color.colorGolden.color()
-                rvHeightPt = 200 + 125 + 165
+                rvHeightPt = 215 + 145 + 165
             }
             7 -> {
                 itemList.add(HomeBlockItem2VhModel().init(0))
@@ -145,7 +151,7 @@ class HomeViewModel(app: Application) : CBaseViewModel(app) {
                 itemList.add(HomeBlockItem3VhModel().init(5))
                 itemList.add(HomeBlockItem3VhModel().init(6))
                 titleColor = R.color.colorPurple.color()
-                rvHeightPt = 125 + 125 + 165
+                rvHeightPt = 145 + 145 + 165
             }
             8 -> {
                 itemList.add(HomeBlockItem2VhModel().init(0))
@@ -157,7 +163,7 @@ class HomeViewModel(app: Application) : CBaseViewModel(app) {
                 itemList.add(HomeBlockItem3VhModel().init(6))
                 itemList.add(HomeBlockItem3VhModel().init(7))
                 titleColor = R.color.colorCopper.color()
-                rvHeightPt = 125 + 165 + 165
+                rvHeightPt = 145 + 165 + 165
             }
         }
     }

@@ -4,4 +4,7 @@
     <string name="common_smart_refresh_head_release">松开立即刷新</string>
     <string name="common_smart_refresh_loading">正在刷新</string>
     <string name="common_smart_no_more">已经到底咯~</string>
+
+    <string name="common_font_rz_qb">font/锐字锐线俏皮简1.0.TTF</string>
+    <string name="common_font_lobster">font/Lobster-1.4.otf</string>
 </resources>

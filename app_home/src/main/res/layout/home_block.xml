@@ -32,10 +32,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/pt_5"
+                android:layout_marginTop="@dimen/pt_4"
                 android:text="@{item.title}"
                 android:textColor="@{item.titleColor}"
-                android:textSize="@dimen/pt_15"
+                android:textSize="@dimen/pt_17"
                 android:textStyle="bold"
                 tools:text="标题"
                 tools:textColor="@color/color555555" />
@@ -69,7 +69,7 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_list"
+            android:id="@+id/rv"
             binding_height_pt="@{item.rvHeightPt}"
             binding_rv_dataList="@{item.itemList}"
             binding_rv_noAnim="@{true}"

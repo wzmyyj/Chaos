@@ -11,12 +11,13 @@
 
     <TextView
         android:id="@+id/tv_end"
+        binding_font_type="@{@string/common_font_lobster}"
         android:layout_width="match_parent"
         android:layout_height="@dimen/pt_65"
         android:background="@color/colorWhite"
         android:gravity="center"
         android:text="@string/home_end"
-        android:textColor="@color/colorBBBBBB"
-        android:textSize="@dimen/pt_13" />
+        android:textColor="@color/color999999"
+        android:textSize="@dimen/pt_15" />
 
 </layout>
