@@ -13,7 +13,7 @@
     <LinearLayout
         android:id="@+id/ll_table"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/pt_130"
+        android:layout_height="@dimen/pt_120"
         android:background="@color/colorWhite"
         android:orientation="vertical">
 
@@ -28,9 +28,9 @@
             binding_rv_noAnim="@{true}"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginStart="@dimen/pt_10"
+            android:layout_marginStart="@dimen/pt_5"
             android:layout_marginTop="@dimen/pt_5"
-            android:layout_marginEnd="@dimen/pt_10"
+            android:layout_marginEnd="@dimen/pt_5"
             android:layout_marginBottom="@dimen/pt_5"
             android:layout_weight="1"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
@@ -38,17 +38,9 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_0_1"
-            android:background="@color/colorLine" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/pt_12"
-            android:background="@color/colorDivider" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_0_1"
+            android:layout_height="@dimen/dp_0_2"
+            android:layout_marginStart="@dimen/pt_10"
+            android:layout_marginEnd="@dimen/pt_10"
             android:background="@color/colorLine" />
 
     </LinearLayout>

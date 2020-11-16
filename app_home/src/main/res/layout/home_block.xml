@@ -26,16 +26,16 @@
             android:layout_height="@dimen/pt_37"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp">
+            android:paddingLeft="@dimen/pt_10"
+            android:paddingRight="@dimen/pt_10">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/pt_5"
+                android:layout_marginTop="@dimen/pt_4"
                 android:text="@{item.title}"
                 android:textColor="@{item.titleColor}"
-                android:textSize="@dimen/pt_15"
+                android:textSize="@dimen/pt_16"
                 android:textStyle="bold"
                 tools:text="标题"
                 tools:textColor="@color/color555555" />
@@ -77,25 +77,10 @@
             android:layout_height="@dimen/pt_290"
             android:layout_marginBottom="5dp"
             android:orientation="vertical"
-            android:paddingStart="@dimen/pt_10"
-            android:paddingEnd="@dimen/pt_10"
+            android:paddingStart="@dimen/pt_7"
+            android:paddingEnd="@dimen/pt_7"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:spanCount="6" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_0_1"
-            android:background="@color/colorLine" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/pt_12"
-            android:background="@color/colorDivider" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_0_1"
-            android:background="@color/colorLine" />
 
     </LinearLayout>
 
