@@ -36,6 +36,10 @@ class HomeRvUI private constructor() : DefaultLifecycleObserver {
         fun get(owner: LifecycleOwner): HomeRvUI? = map[owner]
     }
 
+    override fun onDestroy(owner: LifecycleOwner) {
+        map[owner] = null
+    }
+
     // 记录滑动距离。
     private var rvScrollY: Int = 0
 

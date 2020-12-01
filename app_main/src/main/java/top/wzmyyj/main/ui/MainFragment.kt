@@ -52,6 +52,8 @@ class MainFragment : CBaseFragment() {
         return helper.getView(inflater, childFragmentManager, container)
     }
 
+    //--------------private method----------------//
+
     /**
      * Add Home page.
      */
