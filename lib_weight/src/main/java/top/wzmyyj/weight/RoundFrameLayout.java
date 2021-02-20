@@ -1,4 +1,4 @@
-package top.wzmyyj.weight.layout;
+package top.wzmyyj.weight;
 
 import android.content.Context;
 import android.content.res.TypedArray;

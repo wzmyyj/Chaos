@@ -17,7 +17,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 
 import top.wzmyyj.main.R;
-import top.wzmyyj.weight.pager.SlideViewPager;
+import top.wzmyyj.weight.SlideViewPager;
 
 import static androidx.fragment.app.FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT;
 

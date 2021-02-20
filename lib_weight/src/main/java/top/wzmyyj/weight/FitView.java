@@ -1,4 +1,4 @@
-package top.wzmyyj.weight.weight;
+package top.wzmyyj.weight;
 
 import android.content.Context;
 import android.content.res.Resources;

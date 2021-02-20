@@ -1,4 +1,4 @@
-package top.wzmyyj.weight.pager;
+package top.wzmyyj.weight;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

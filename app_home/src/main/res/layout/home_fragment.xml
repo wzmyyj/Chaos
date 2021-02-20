@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent">
 
-            <top.wzmyyj.weight.weight.FitView
+            <top.wzmyyj.weight.FitView
                 android:id="@+id/fv_bar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

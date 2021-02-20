@@ -1,7 +1,6 @@
 package top.wzmyyj.home.major.ui
 
 import android.view.View
-import androidx.recyclerview.widget.RecyclerView
 import com.scwang.smartrefresh.layout.api.RefreshLayout
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener
 import top.wzmyyj.common.base.CBaseFragment

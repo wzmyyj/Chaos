@@ -5,14 +5,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <top.wzmyyj.weight.pager.SlideViewPager
+    <top.wzmyyj.weight.SlideViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         app:svp_isSlide="false">
 
-    </top.wzmyyj.weight.pager.SlideViewPager>
+    </top.wzmyyj.weight.SlideViewPager>
 
     <View
         android:id="@+id/v_line"
